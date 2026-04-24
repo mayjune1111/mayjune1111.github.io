@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Poppins:wght@300;400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -17,14 +19,25 @@ nav {
   padding: 20px 40px;
 }
 
+nav h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 28px;
+  background: linear-gradient(135deg, #ff4d9d, #ff8fab);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 nav a {
   color: #ccc;
   margin-left: 20px;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: white;
+  color: #ff4d9d;
 }
 
 /* HERO */
@@ -39,42 +52,115 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 60px;
-  font-weight: 300;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 100px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  animation: fadeInScale 1s ease-in;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .hero p {
   margin-top: 15px;
   color: #eee;
+  font-size: 18px;
 }
 
 .buttons {
-  margin-top: 30px;
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 button {
-  padding: 12px 25px;
+  padding: 14px 32px;
   margin: 5px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 .primary {
-  background: #ff4d9d;
+  background: linear-gradient(135deg, #ff4d9d, #ff1f7f);
   color: white;
+  box-shadow: 0 5px 20px rgba(255, 77, 157, 0.3);
+}
+
+.primary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(255, 77, 157, 0.6);
+}
+
+.primary:active {
+  transform: translateY(-1px) scale(1.02);
 }
 
 .secondary {
   background: transparent;
-  border: 1px solid #aaa;
+  border: 2px solid #ff4d9d;
   color: white;
+  transition: all 0.3s ease;
+}
+
+.secondary:hover {
+  background: rgba(255, 77, 157, 0.2);
+  border-color: #ff4d9d;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 77, 157, 0.4);
+}
+
+.secondary:active {
+  transform: translateY(-1px);
 }
 
 /* SECTION */
 .section {
   padding: 80px 40px;
   text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(255, 77, 157, 0.02));
+}
+
+.section h2 {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #ff4d9d;
 }
 
 /* CARDS */
@@ -90,10 +176,22 @@ button {
   padding: 20px;
   border-radius: 15px;
   background: linear-gradient(145deg, #1c1c3c, #2b2b5c);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 77, 157, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #ff4d9d;
+  background: linear-gradient(145deg, #2b2b5c, #3c3c7c);
+  box-shadow: 0 20px 40px rgba(255, 77, 157, 0.2);
 }
 
 .card h3 {
   margin-top: 20px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 /* FOOTER */
@@ -101,4 +199,41 @@ footer {
   text-align: center;
   padding: 40px;
   color: #888;
+  border-top: 1px solid rgba(255, 77, 157, 0.1);
+  margin-top: 40px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  nav {
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  nav div {
+    margin-top: 15px;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 80%;
+  }
 }
