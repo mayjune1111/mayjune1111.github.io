@@ -1,130 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MayJune Music</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 54px;
-      margin: 0;
-    }
-
-    p.subtitle {
-      color: #aaa;
-      margin-top: 10px;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      border-left: 4px solid white;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-
-    .card {
-      background: #161616;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    a {
-      color: #7cc7ff;
-      text-decoration: none;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 20px;
-      background: white;
-      color: black;
-      border-radius: 6px;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #666;
-      font-size: 14px;
-    }
-  </style>
-
+  <title>DJ Velvet</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-  <h1>MayJune</h1>
-  <p class="subtitle">DJ • Music • Creative Artist</p>
-</header>
+<nav>
+  <h2>dj velvet</h2>
+  <div>
+    <a href="index.html">home</a>
+    <a href="music.html">music</a>
+    <a href="about.html">about</a>
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
 
-<section>
-  <h2>Music</h2>
+<section class="hero">
+  <h1>the night remembers you</h1>
+  <p>deep house. late nights. music that finds you</p>
 
-  <div class="card">
-    <p>🎧 Add your SoundCloud or Spotify embeds here</p>
-    <p>
-      Example: <br>
-      <a href="https://soundcloud.com" target="_blank">SoundCloud</a>
-    </p>
+  <div class="buttons">
+    <button class="primary">listen</button>
+    <button class="secondary">contact me</button>
+    <button class="secondary">shop</button>
   </div>
 </section>
 
-<section>
-  <h2>About</h2>
+<section class="section">
+  <h2>latest releases</h2>
 
-  <div class="card">
-    <p>
-      I’m a music artist focused on creating mixes, live sets, and curated sound experiences.
-    </p>
+  <div class="cards">
+    <div class="card">
+      <h3>after midnight</h3>
+      <p>late-night deep house that feels like driving nowhere</p>
+    </div>
+
+    <div class="card">
+      <h3>golden hour set</h3>
+      <p>sunset into darkness — melodic techno</p>
+    </div>
+
+    <div class="card">
+      <h3>dive bar sessions vol. 2</h3>
+      <p>intimate, smoky, unforgettable</p>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>Contact</h2>
+<section class="section">
+  <h2>stream now</h2>
 
-  <div class="card">
-    <p>Email: <a href="mailto:you@yourdomain.com">you@yourdomain.com</a></p>
-  </div>
+  <iframe style="border-radius:12px"
+    src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC"
+    width="300" height="80" frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen">
+  </iframe>
 </section>
 
-<section>
-  <h2>Bookings</h2>
-
-  <div class="card">
-    <p>For events, sets, or collaborations:</p>
-
-    <!-- Replace with Stripe/PayPal link -->
-    <a class="button" href="https://paypal.me/yourlink" target="_blank">
-      Book / Pay Me
-    </a>
-  </div>
+<section class="section">
+  <h2>let’s make something unforgettable</h2>
+  <p>reach out and let's talk</p>
+  <button class="primary">get in touch</button>
 </section>
 
 <footer>
-  © 2026 MayJune Music
+  © 2026 dj velvet
 </footer>
 
 </body>
