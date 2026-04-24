@@ -1,94 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>contact | mayjune</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <h2 class="logo">mayjune</h2>
-    <nav class="nav-links" aria-label="main navigation">
-      <a href="index.html">home</a>
-      <a href="music.html">music</a>
-      <a href="about.html">about</a>
-      <a href="contact.html" class="active">contact</a>
-    </nav>
+<nav>
+  <h2>dj velvet</h2>
+  <h2>mayjune</h2>
+  <div>
+    <a href="index.html">home</a>
+    <a href="music.html">music</a>
+@@ -16,16 +16,61 @@ <h2>dj velvet</h2>
   </div>
-</header>
+</nav>
 
-<section class="hero hero-small">
-  <div class="hero-content">
-    <h1>get in touch</h1>
-    <p>let's build something unforgettable together</p>
-  </div>
+<section class="section">
+  <h1>contact</h1>
+<section class="hero-small">
+  <h1>get in touch</h1>
+  <p>let's create something unforgettable together</p>
 </section>
 
-<main class="contact">
-  <div class="contact-grid">
-
-    <section class="card form-card">
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-form">
       <h2>send a message</h2>
-
-      <form class="form" action="#" method="post">
+      <form>
         <div class="form-group">
-          <label for="name">name</label>
-          <input id="name" name="name" type="text" placeholder="your name" required />
+          <input type="text" placeholder="your name" required>
         </div>
-
         <div class="form-group">
-          <label for="email">email</label>
-          <input id="email" name="email" type="email" placeholder="your email" required />
+          <input type="email" placeholder="your email" required>
         </div>
-
         <div class="form-group">
-          <label for="subject">subject</label>
-          <input id="subject" name="subject" type="text" placeholder="what is this about?" required />
+          <input type="text" placeholder="subject" required>
         </div>
-
         <div class="form-group">
-          <label for="message">message</label>
-          <textarea id="message" name="message" rows="6" placeholder="tell me about your project..." required></textarea>
+          <textarea placeholder="tell me about your project..." rows="6" required></textarea>
         </div>
-
-        <button type="submit" class="btn primary">send message</button>
+        <button type="submit" class="button primary">send message</button>
       </form>
-    </section>
+    </div>
 
-    <aside class="card info-card">
+    <div class="contact-info">
       <h2>let's work together</h2>
-      <p>bookings, collaborations, or just ideas — i’m open to it all.</p>
-
-      <div class="info-block">
+      <p>interested in booking, collaborations, or just want to chat? reach out!</p>
+      
+      <div class="info-item">
         <h3>email</h3>
-        <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
+        <p><a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a></p>
       </div>
 
-      <div class="info-block">
+  <form>
+    <input type="text" placeholder="your name" required><br><br>
+    <input type="email" placeholder="your email" required><br><br>
+    <textarea placeholder="message"></textarea><br><br>
+    <button class="primary">send</button>
+  </form>
+      <div class="info-item">
         <h3>socials</h3>
-        <p class="socials">
-          <a href="https://instagram.com" target="_blank" rel="noopener">instagram</a>
-          <span>•</span>
-          <a href="https://soundcloud.com" target="_blank" rel="noopener">soundcloud</a>
-          <span>•</span>
-          <a href="https://twitter.com" target="_blank" rel="noopener">twitter</a>
+        <p>
+          <a href="https://instagram.com" target="_blank">instagram</a> • 
+          <a href="https://soundcloud.com" target="_blank">soundcloud</a> • 
+          <a href="https://twitter.com" target="_blank">twitter</a>
         </p>
       </div>
 
-      <div class="info-block">
+      <div class="info-item">
         <h3>based in</h3>
-        <p>worldwide • remote-friendly collaborations</p>
+        <p>worldwide • available for remote collaborations</p>
       </div>
-    </aside>
-
+    </div>
   </div>
-</main>
+</section>
 
-<footer class="footer">
-  <p>© 2026 mayjune</p>
+<footer>
+  © 2026 mayjune
 </footer>
 
 </body>
