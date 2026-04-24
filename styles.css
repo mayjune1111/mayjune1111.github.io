@@ -86,12 +86,14 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-button {
+.button {
   padding: 14px 32px;
   margin: 5px;
   border-radius: 30px;
-  border: none;
+  border: 2px solid;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
   transition: all 0.3s ease;
   font-size: 16px;
   font-weight: 600;
@@ -99,7 +101,7 @@ button {
   overflow: hidden;
 }
 
-button::before {
+.button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -111,12 +113,13 @@ button::before {
   z-index: -1;
 }
 
-button:hover::before {
+.button:hover::before {
   left: 100%;
 }
 
 .primary {
-  background: linear-gradient(135deg, #ff4d9d, #ff1f7f);
+  background: transparent;
+  border-color: #ff4d9d;
   color: white;
   box-shadow: 0 5px 20px rgba(255, 77, 157, 0.3);
 }
@@ -124,6 +127,7 @@ button:hover::before {
 .primary:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 40px rgba(255, 77, 157, 0.6);
+  background: linear-gradient(135deg, #ff4d9d, #ff1f7f);
 }
 
 .primary:active {
@@ -233,7 +237,7 @@ footer {
     align-items: center;
   }
 
-  button {
+  .button {
     width: 80%;
   }
 }
