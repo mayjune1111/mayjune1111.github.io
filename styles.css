@@ -8,14 +8,17 @@
 }
 
 body {
+  margin: 0;
   background: radial-gradient(circle at top, #2b1055, #090a1a);
   color: white;
+  overflow-x: hidden;
 }
 
 /* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 40px;
 }
 
@@ -61,24 +64,10 @@ nav a:hover {
   animation: fadeInScale 1s ease-in;
 }
 
-.hero-small {
-  padding: 80px 40px;
-  text-align: center;
-  background: linear-gradient(135deg, #6a00ff, #ff4d6d);
-}
-
-.hero-small h1 {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 64px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-}
-
-.hero-small p {
-  font-size: 18px;
+.hero p {
+  margin-top: 15px;
   color: #eee;
+  font-size: 18px;
 }
 
 @keyframes fadeInScale {
@@ -92,12 +81,27 @@ nav a:hover {
   }
 }
 
-.hero p {
-  margin-top: 15px;
-  color: #eee;
-  font-size: 18px;
+/* SMALL HERO */
+.hero-small {
+  padding: 80px 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #6a00ff, #ff4d6d);
 }
 
+.hero-small h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-small p {
+  font-size: 18px;
+  color: #eee;
+}
+
+/* BUTTONS */
 .buttons {
   margin-top: 40px;
   display: flex;
@@ -108,7 +112,6 @@ nav a:hover {
 
 .button {
   padding: 14px 32px;
-  margin: 5px;
   border-radius: 30px;
   border: 2px solid;
   cursor: pointer;
@@ -119,22 +122,6 @@ nav a:hover {
   font-weight: 600;
   position: relative;
   overflow: hidden;
-}
-
-.button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-.button:hover::before {
-  left: 100%;
 }
 
 .primary {
@@ -150,26 +137,15 @@ nav a:hover {
   background: linear-gradient(135deg, #ff4d9d, #ff1f7f);
 }
 
-.primary:active {
-  transform: translateY(-1px) scale(1.02);
-}
-
 .secondary {
   background: transparent;
   border: 2px solid #ff4d9d;
   color: white;
-  transition: all 0.3s ease;
 }
 
 .secondary:hover {
   background: rgba(255, 77, 157, 0.2);
-  border-color: #ff4d9d;
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 77, 157, 0.4);
-}
-
-.secondary:active {
-  transform: translateY(-1px);
 }
 
 /* SECTION */
@@ -181,16 +157,8 @@ nav a:hover {
 
 .section h2 {
   font-size: 42px;
-  font-weight: 600;
-  letter-spacing: 1px;
   margin-bottom: 20px;
   color: #ff4d9d;
-}
-
-.section p {
-  font-size: 16px;
-  color: #ddd;
-  margin-bottom: 30px;
 }
 
 /* CONTACT SECTION */
@@ -199,6 +167,7 @@ nav a:hover {
   background: linear-gradient(180deg, transparent, rgba(255, 77, 157, 0.02));
 }
 
+/* FIXED GRID LAYOUT */
 .contact-container {
   max-width: 1000px;
   margin: 0 auto;
@@ -208,20 +177,7 @@ nav a:hover {
   align-items: start;
 }
 
-.contact-form h2,
-.contact-info h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #ff4d9d;
-}
-
-.contact-info p {
-  color: #ddd;
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
-
+/* FORM */
 .form-group {
   margin-bottom: 20px;
 }
@@ -234,14 +190,8 @@ nav a:hover {
   border-radius: 8px;
   background: rgba(255, 77, 157, 0.05);
   color: white;
-  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   transition: all 0.3s ease;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .form-group input:focus,
@@ -249,11 +199,16 @@ nav a:hover {
   outline: none;
   border-color: #ff4d9d;
   background: rgba(255, 77, 157, 0.1);
-  box-shadow: 0 0 15px rgba(255, 77, 157, 0.2);
+}
+
+/* INFO */
+.contact-info p {
+  color: #ddd;
+  margin-bottom: 15px;
+  line-height: 1.6;
 }
 
 .info-item {
-  text-align: left;
   margin-bottom: 30px;
   padding-bottom: 30px;
   border-bottom: 1px solid rgba(255, 77, 157, 0.1);
@@ -264,8 +219,6 @@ nav a:hover {
 }
 
 .info-item h3 {
-  font-size: 16px;
-  font-weight: 600;
   color: #ff4d9d;
   margin-bottom: 8px;
 }
@@ -273,14 +226,9 @@ nav a:hover {
 .info-item a {
   color: #ff8fab;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.info-item a:hover {
-  color: #ff4d9d;
-}
-
-/* SHOP GRID */
+/* SHOP */
 .shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -289,78 +237,12 @@ nav a:hover {
   margin: 0 auto;
 }
 
-.shop-item {
-  background: linear-gradient(145deg, #1c1c3c, #2b2b5c);
-  border: 1px solid rgba(255, 77, 157, 0.1);
-  border-radius: 15px;
-  padding: 30px 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.shop-item:hover {
-  transform: translateY(-10px);
-  border-color: #ff4d9d;
-  background: linear-gradient(145deg, #2b2b5c, #3c3c7c);
-  box-shadow: 0 20px 40px rgba(255, 77, 157, 0.2);
-}
-
-.shop-image {
-  font-size: 60px;
-  margin-bottom: 20px;
-}
-
-.shop-item h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #ff4d9d;
-}
-
-.shop-item p {
-  color: #ddd;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.price {
-  font-size: 24px;
-  font-weight: 600;
-  color: #ff8fab;
-  margin: 15px 0 20px 0;
-}
-
 /* CARDS */
 .cards {
   display: flex;
   gap: 20px;
   justify-content: center;
   margin-top: 40px;
-}
-
-.card {
-  width: 250px;
-  padding: 20px;
-  border-radius: 15px;
-  background: linear-gradient(145deg, #1c1c3c, #2b2b5c);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 1px solid rgba(255, 77, 157, 0.1);
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  border-color: #ff4d9d;
-  background: linear-gradient(145deg, #2b2b5c, #3c3c7c);
-  box-shadow: 0 20px 40px rgba(255, 77, 157, 0.2);
-}
-
-.card h3 {
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: 600;
 }
 
 /* FOOTER */
@@ -372,50 +254,19 @@ footer {
   margin-top: 40px;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .hero h1 {
     font-size: 48px;
   }
 
-  .hero-small h1 {
-    font-size: 42px;
-  }
-
   nav {
-    padding: 20px;
     flex-direction: column;
+    gap: 10px;
   }
 
-  nav div {
-    margin-top: 15px;
-  }
-
-  nav a {
-    margin-left: 0;
-    margin-right: 15px;
-  }
-
-  .buttons {
+  .cards {
     flex-direction: column;
     align-items: center;
-  }
-
-  .button {
-    width: 80%;
-  }
-
-  .contact-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .shop-grid {
-    grid-template-columns: 1fr;
   }
 }
