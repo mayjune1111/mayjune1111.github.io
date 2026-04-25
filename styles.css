@@ -53,45 +53,40 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #6a00ff, #ff4d6d);
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
 }
 
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(40px, 10vw, 100px); /* fluid: shrinks on small screens automatically */
+  font-size: clamp(48px, 12vw, 110px);
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
   animation: fadeInScale 1s ease-in;
 }
 
 .hero p {
-  margin-top: 15px;
   color: #eee;
   font-size: clamp(15px, 2vw, 18px);
-  max-width: 600px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
 }
 
 @keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-/* SMALL HERO */
+/* SMALL HERO (contact, about, etc.) */
 .hero-small {
   padding: 80px 40px;
   text-align: center;
@@ -109,6 +104,7 @@ nav a:hover {
 .hero-small p {
   font-size: 18px;
   color: #eee;
+  opacity: 0.85;
 }
 
 /* BUTTONS */
@@ -123,64 +119,111 @@ nav a:hover {
 .button {
   padding: 14px 32px;
   border-radius: 30px;
-  border: 2px solid;
+  border: 2px solid #ff4d9d;
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  position: relative;
-  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Primary button: filled so it stands out from secondary */
+/* Filled — main call to action */
 .primary {
   background: linear-gradient(135deg, #ff4d9d, #ff1f7f);
-  border-color: #ff4d9d;
   color: white;
-  box-shadow: 0 5px 20px rgba(255, 77, 157, 0.3);
+  box-shadow: 0 5px 20px rgba(255, 77, 157, 0.35);
 }
 
 .primary:hover {
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-3px) scale(1.04);
   box-shadow: 0 15px 40px rgba(255, 77, 157, 0.6);
 }
 
-/* Secondary button: outline style */
+/* Outline — secondary actions */
 .secondary {
   background: transparent;
-  border-color: #ff4d9d;
   color: white;
 }
 
 .secondary:hover {
-  background: rgba(255, 77, 157, 0.2);
+  background: rgba(255, 77, 157, 0.18);
   transform: translateY(-3px);
 }
 
-/* SECTION */
+/* GENERAL SECTION */
 .section {
   padding: 80px 40px;
   text-align: center;
-  background: linear-gradient(180deg, transparent, rgba(255, 77, 157, 0.02));
 }
 
 .section h2 {
-  font-size: clamp(28px, 5vw, 42px);
-  margin-bottom: 20px;
+  font-size: clamp(26px, 5vw, 42px);
+  margin-bottom: 12px;
   color: #ff4d9d;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.section > p {
+  color: #bbb;
+  margin-bottom: 8px;
+}
+
+/* RELEASE CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 77, 157, 0.2);
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: 260px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(255, 77, 157, 0.2);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #ff8fab;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* SPOTIFY EMBED */
+.section iframe {
+  display: block;
+  margin: 30px auto 0;
+  max-width: 600px;
+  width: 100%;
 }
 
 /* CONTACT SECTION */
 .contact-section {
   padding: 80px 40px;
-  background: linear-gradient(180deg, transparent, rgba(255, 77, 157, 0.02));
 }
 
-/* Contact grid: two columns on desktop, stacks on mobile */
 .contact-container {
-  max-width: 1000px;
+  max-width: 860px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -188,15 +231,13 @@ nav a:hover {
   align-items: start;
 }
 
-/* FORM — key fix: constrain width so it doesn't stretch full page */
+/* THE FORM — constrained so it doesn't stretch */
 .contact-form {
   width: 100%;
-  max-width: 520px; /* won't grow beyond this on wide screens */
-  margin: 0 auto;  /* centres it if the column is wider */
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .form-group input,
@@ -208,7 +249,13 @@ nav a:hover {
   background: rgba(255, 77, 157, 0.05);
   color: white;
   font-size: 14px;
+  font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .form-group input:focus,
@@ -221,23 +268,28 @@ nav a:hover {
 /* CONTACT INFO */
 .contact-info p {
   color: #ddd;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   line-height: 1.6;
 }
 
 .info-item {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
   border-bottom: 1px solid rgba(255, 77, 157, 0.1);
 }
 
 .info-item:last-child {
   border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .info-item h3 {
   color: #ff4d9d;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .info-item a {
@@ -245,54 +297,46 @@ nav a:hover {
   text-decoration: none;
 }
 
-/* SHOP */
-.shop-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* CARDS — flex-wrap added so cards stack before breaking */
-.cards {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap; /* cards wrap to next line instead of overflowing */
-  margin-top: 40px;
+.info-item a:hover {
+  color: #ff4d9d;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 40px;
-  color: #888;
+  color: #555;
   border-top: 1px solid rgba(255, 77, 157, 0.1);
-  margin-top: 40px;
+  margin-top: 60px;
+  font-size: 13px;
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────── */
-/* Most sizing is now handled by clamp() above, so this section
-   only needs to handle layout changes (stacking, hiding, etc.) */
-
+/* ─── MOBILE ──────────────────────────────────────────────────
+   clamp() handles font sizes automatically above.
+   This section only handles layout shifts.
+──────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   nav {
+    padding: 20px;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px;
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    gap: 0;
   }
 
   nav a {
     margin-left: 0;
+    margin-right: 16px;
   }
 
   .section {
+    padding: 60px 20px;
+  }
+
+  .hero-small {
     padding: 60px 20px;
   }
 
@@ -301,14 +345,12 @@ footer {
   }
 
   .contact-container {
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .contact-form {
-    max-width: 100%; /* full width on phones is fine since screen is small */
-  }
-
-  .hero-small {
-    padding: 60px 20px;
+  .card {
+    width: 100%;
+    max-width: 340px;
   }
 }
