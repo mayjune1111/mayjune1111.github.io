@@ -67,6 +67,16 @@ body::before {
   mix-blend-mode: soft-light;
 }
 
+/* DARK VEIL — takes the edge off the rawness, lets content breathe */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ── AMBIENT ORBS ── */
 .orb {
   position: fixed;
@@ -105,54 +115,99 @@ body::before {
 @keyframes drift1  { to { transform: translate(80px, 90px); } }
 @keyframes drift2  { to { transform: translate(-50px, -70px); } }
 
-/* ══ CURSOR ══ */
+/* ══ CURSOR — SUN ══ */
+
+/* Core sun disc */
 .cursor {
-  width: 10px; height: 10px;
-  background: var(--gold);
+  width: 14px; height: 14px;
+  background: radial-gradient(circle, #fff9e0 0%, var(--gold) 55%, var(--amber) 100%);
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: lighten;
-  transition: transform 0.1s, width 0.2s, height 0.2s, background 0.3s;
-  box-shadow: 0 0 12px 4px rgba(255, 209, 102, 0.6);
+  transition: transform 0.1s, width 0.25s, height 0.25s;
+  box-shadow:
+    0 0 8px  4px rgba(255, 230, 100, 0.7),
+    0 0 22px 8px rgba(255, 180, 60, 0.45),
+    0 0 50px 16px rgba(255, 120, 40, 0.2);
 }
 .cursor.clicking {
-  transform: scale(0.5);
-  background: var(--coral);
-  box-shadow: 0 0 16px 6px rgba(255, 107, 81, 0.7);
+  transform: scale(0.65);
+  background: radial-gradient(circle, #fff 0%, var(--coral) 60%);
+  box-shadow:
+    0 0 10px 5px rgba(255, 120, 80, 0.8),
+    0 0 30px 12px rgba(255, 80, 40, 0.4);
 }
+
+/* Rotating ray ring — SVG-drawn via CSS */
 .cursor-ring {
-  width: 38px; height: 38px;
-  border: 1.5px solid rgba(255, 200, 100, 0.55);
-  border-radius: 50%;
+  width: 44px; height: 44px;
   position: fixed; top: 0; left: 0;
   pointer-events: none;
   z-index: 9998;
-  transition: width 0.3s cubic-bezier(0.23,1,0.32,1),
-              height 0.3s cubic-bezier(0.23,1,0.32,1),
-              border-color 0.3s, background 0.3s;
+  transition: width 0.35s cubic-bezier(0.23,1,0.32,1),
+              height 0.35s cubic-bezier(0.23,1,0.32,1),
+              opacity 0.3s;
+  animation: sunSpin 8s linear infinite;
+  /* 8 ray dashes on a circle */
+  background: none;
+  border-radius: 50%;
+  background-image: repeating-conic-gradient(
+    rgba(255, 220, 100, 0.7) 0deg 3deg,
+    transparent 3deg 45deg
+  );
+  /* Mask out the centre so only outer ring shows */
+  -webkit-mask: radial-gradient(circle, transparent 38%, black 42%, black 48%, transparent 52%);
+          mask: radial-gradient(circle, transparent 38%, black 42%, black 48%, transparent 52%);
 }
 .cursor-ring.hovered {
-  width: 64px; height: 64px;
-  border-color: var(--gold);
-  background: rgba(255, 209, 102, 0.07);
+  width: 70px; height: 70px;
+  opacity: 0.85;
 }
 .cursor-ring.clicking {
-  width: 26px; height: 26px;
-  border-color: var(--coral);
+  width: 32px; height: 32px;
+  opacity: 1;
+  animation: sunSpin 1.5s linear infinite; /* spins fast on click */
 }
+
+@keyframes sunSpin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* Corona halo — separate softer ring */
+.cursor-halo {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(circle,
+    rgba(255, 220, 100, 0.12) 0%,
+    rgba(255, 150, 60, 0.06) 50%,
+    transparent 70%
+  );
+  transition: width 0.4s cubic-bezier(0.23,1,0.32,1),
+              height 0.4s cubic-bezier(0.23,1,0.32,1),
+              opacity 0.3s;
+}
+.cursor-halo.hovered {
+  width: 100px; height: 100px;
+  opacity: 0.7;
+}
+
+/* Ember sparks */
 .cursor-spark {
   position: fixed;
-  width: 5px; height: 5px;
+  width: 4px; height: 4px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9990;
-  animation: emberFade 0.8s ease forwards;
+  animation: emberFade 0.9s ease forwards;
 }
 @keyframes emberFade {
-  0%   { opacity: 1; transform: scale(1) translate(0, 0); }
-  100% { opacity: 0; transform: scale(0) translate(var(--tx), var(--ty)); }
+  0%   { opacity: 1; transform: scale(1)   translate(0, 0); }
+  100% { opacity: 0; transform: scale(0.2) translate(var(--tx), var(--ty)); }
 }
 
 /* ══ NAV ══ */
@@ -253,7 +308,7 @@ nav a:hover::after { width: 100%; }
   text-align: center;
   padding: 120px 24px 80px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .hero-eyebrow {
   font-size: 11px;
@@ -336,7 +391,7 @@ nav a:hover::after { width: 100%; }
   padding: 160px 52px 80px;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   border-bottom: 1px solid var(--border);
 }
 .hero-small h1 {
@@ -366,7 +421,7 @@ nav a:hover::after { width: 100%; }
   padding: 100px 52px;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .section h2 {
   font-family: 'Cormorant Garamond', serif;
@@ -399,7 +454,7 @@ nav a:hover::after { width: 100%; }
   border-bottom: 1px solid var(--border);
   padding: 20px 0;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   background: rgba(255, 180, 80, 0.04);
 }
 .marquee-track {
@@ -587,7 +642,7 @@ nav a:hover::after { width: 100%; }
 .music-action { flex-shrink: 0; }
 
 /* ══ CONTACT ══ */
-.contact-section { padding: 100px 52px; position: relative; z-index: 1; }
+.contact-section { padding: 100px 52px; position: relative; z-index: 2; }
 .contact-container {
   max-width: 900px;
   margin: 0 auto;
@@ -713,18 +768,37 @@ nav a:hover::after { width: 100%; }
 /* ══ FOOTER ══ */
 footer {
   text-align: center;
-  padding: 48px;
-  color: rgba(255, 220, 160, 0.28);
-  border-top: 1px solid var(--border);
+  padding: 52px 48px;
+  border-top: 1px solid rgba(255, 180, 80, 0.3);
   font-size: 11px;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   position: relative;
-  z-index: 1;
-  background: rgba(255, 150, 60, 0.04);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
-footer a { color: var(--gold); text-decoration: none; }
-footer a:hover { opacity: 0.7; }
+footer p,
+footer span,
+footer div {
+  color: rgba(255, 235, 190, 0.75);
+}
+/* Any plain text nodes directly in footer */
+footer {
+  color: rgba(255, 235, 190, 0.75);
+}
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 500;
+  text-shadow: 0 0 14px rgba(255, 209, 102, 0.45);
+  transition: color 0.3s, text-shadow 0.3s;
+}
+footer a:hover {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 209, 102, 0.7);
+}
 
 /* ══ ANIMATIONS ══ */
 @keyframes fadeUp {
@@ -741,7 +815,7 @@ footer a:hover { opacity: 0.7; }
 /* ══ MOBILE ══ */
 @media (max-width: 768px) {
   body { cursor: auto; }
-  .cursor, .cursor-ring { display: none; }
+  .cursor, .cursor-ring, .cursor-halo { display: none; }
   nav { padding: 18px 24px; }
   nav.scrolled { padding: 14px 24px; }
   .nav-links { gap: 22px; }
@@ -756,3 +830,39 @@ footer a:hover { opacity: 0.7; }
   .card { width: 100%; max-width: 340px; }
   .music-card { padding: 18px 20px; }
 }
+
+/*
+  ── SUN CURSOR JS ──
+  Add a <div class="cursor-halo"></div> alongside your existing
+  .cursor and .cursor-ring divs, then track it the same way:
+
+  const halo = document.querySelector('.cursor-halo');
+  document.addEventListener('mousemove', e => {
+    const x = e.clientX, y = e.clientY;
+    cursor.style.transform = `translate(${x - 7}px, ${y - 7}px)`;
+    ring.style.transform   = `translate(${x - 22}px, ${y - 22}px)`;
+    halo.style.transform   = `translate(${x - 30}px, ${y - 30}px)`;
+
+    // ember sparks
+    if (Math.random() > 0.82) {
+      const s = document.createElement('div');
+      s.className = 'cursor-spark';
+      const hue = 30 + Math.random() * 30;
+      s.style.cssText = `left:${x}px;top:${y}px;
+        background:hsl(${hue},100%,65%);
+        --tx:${(Math.random()-0.5)*28}px;
+        --ty:${-(Math.random()*22+8)}px`;
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 900);
+    }
+  });
+
+  document.addEventListener('mousedown', () => {
+    cursor.classList.add('clicking');
+    ring.classList.add('clicking');
+  });
+  document.addEventListener('mouseup', () => {
+    cursor.classList.remove('clicking');
+    ring.classList.remove('clicking');
+  });
+*/
