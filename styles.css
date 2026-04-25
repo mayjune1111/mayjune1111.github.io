@@ -203,8 +203,9 @@ nav a:hover {
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 60px;
+  align-items: start;
 }
 
 .contact-form h2,
