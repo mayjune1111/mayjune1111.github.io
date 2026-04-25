@@ -1062,3 +1062,18 @@ body.disco-mode {
   .shop-grid { grid-template-columns: 1fr; }
   .hero h1 { letter-spacing: -2px; }
 }
+
+.cursor {
+  width: 20px;
+  height: 20px;
+  background: red !important;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  z-index: 999999;
+}
+
+.cursor-ring,
+.cursor-halo {
+  display: none !important;
+}
