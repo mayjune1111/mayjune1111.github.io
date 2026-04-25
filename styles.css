@@ -177,23 +177,23 @@ body::after {
 
 /* Corona halo — separate softer ring */
 .cursor-halo {
-  width: 60px; height: 60px;
+  width: 80px; height: 80px;
   border-radius: 50%;
   position: fixed; top: 0; left: 0;
   pointer-events: none;
   z-index: 9997;
   background: radial-gradient(circle,
-    rgba(255, 220, 100, 0.12) 0%,
-    rgba(255, 150, 60, 0.06) 50%,
+    rgba(255, 220, 100, 0.13) 0%,
+    rgba(255, 150, 60, 0.07) 50%,
     transparent 70%
   );
-  transition: width 0.4s cubic-bezier(0.23,1,0.32,1),
-              height 0.4s cubic-bezier(0.23,1,0.32,1),
+  transition: width 0.45s cubic-bezier(0.23,1,0.32,1),
+              height 0.45s cubic-bezier(0.23,1,0.32,1),
               opacity 0.3s;
 }
 .cursor-halo.hovered {
-  width: 100px; height: 100px;
-  opacity: 0.7;
+  width: 120px; height: 120px;
+  opacity: 0.8;
 }
 
 /* Ember sparks */
@@ -834,14 +834,22 @@ footer a:hover {
 /*
   ── SUN CURSOR JS ──
   Add a <div class="cursor-halo"></div> alongside your existing
-  .cursor and .cursor-ring divs, then track it the same way:
+  .cursor and .cursor-ring divs in your HTML, then use this script:
 
-  const halo = document.querySelector('.cursor-halo');
+  const cursor = document.querySelector('.cursor');
+  const ring   = document.querySelector('.cursor-ring');
+  const halo   = document.querySelector('.cursor-halo');
+
+  // Each element is offset by half its own width/height so it centers on the mouse.
+  // cursor = 14px  → offset 7
+  // ring   = 44px  → offset 22
+  // halo   = 80px  → offset 40   ← was wrong before (was 30), now matches CSS width
+
   document.addEventListener('mousemove', e => {
     const x = e.clientX, y = e.clientY;
-    cursor.style.transform = `translate(${x - 7}px, ${y - 7}px)`;
+    cursor.style.transform = `translate(${x - 7}px,  ${y - 7}px)`;
     ring.style.transform   = `translate(${x - 22}px, ${y - 22}px)`;
-    halo.style.transform   = `translate(${x - 30}px, ${y - 30}px)`;
+    halo.style.transform   = `translate(${x - 40}px, ${y - 40}px)`;
 
     // ember sparks
     if (Math.random() > 0.82) {
@@ -864,5 +872,17 @@ footer a:hover {
   document.addEventListener('mouseup', () => {
     cursor.classList.remove('clicking');
     ring.classList.remove('clicking');
+  });
+
+  // Expand halo + ring on hoverable elements
+  document.querySelectorAll('a, button, .button, .card, .tag').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.classList.add('hovered');
+      halo.classList.add('hovered');
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.classList.remove('hovered');
+      halo.classList.remove('hovered');
+    });
   });
 */
