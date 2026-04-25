@@ -1,75 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>contact | mayjune</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<nav>
-  <h2>mayjune</h2>
-  <div>
-    <a href="index.html">home</a>
-    <a href="music.html">music</a>
-    <a href="about.html">about</a>
-    <a href="contact.html">contact</a>
+<header class="nav">
+  <div class="nav-inner">
+    <h2 class="logo">mayjune</h2>
+    <nav class="nav-links" aria-label="main navigation">
+      <a href="index.html">home</a>
+      <a href="music.html">music</a>
+      <a href="about.html">about</a>
+      <a href="contact.html" class="active">contact</a>
+    </nav>
   </div>
-</nav>
+</header>
 
-<section class="hero-small">
-  <h1>get in touch</h1>
-  <p>let's create something unforgettable together</p>
+<section class="hero hero-small">
+  <div class="hero-content">
+    <h1>get in touch</h1>
+    <p>let's build something unforgettable together</p>
+  </div>
 </section>
 
-<section class="contact-section">
-  <div class="contact-container">
-    <div class="contact-form">
-      <h2>send a message</h2>
-      <form>
-        <div class="form-group">
-          <input type="text" placeholder="your name" required>
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="your email" required>
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="subject" required>
-        </div>
-        <div class="form-group">
-          <textarea placeholder="tell me about your project..." rows="6" required></textarea>
-        </div>
-        <button type="submit" class="button primary">send message</button>
-      </form>
-    </div>
+<main class="contact">
+  <div class="contact-grid">
 
-    <div class="contact-info">
+    <section class="card form-card">
+      <h2>send a message</h2>
+
+      <form action="https://formspree.io/f/mvzdldql" method="POST">
+  <div class="form-group">
+    <input type="text" name="name" placeholder="your name" required>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="your email" required>
+  </div>
+  <div class="form-group">
+    <input type="text" name="subject" placeholder="subject" required>
+  </div>
+  <div class="form-group">
+    <textarea name="message" placeholder="tell me about your project..." rows="6" required></textarea>
+  </div>
+  <button type="submit" class="button primary">send message</button>
+</form>
+    </section>
+
+    <aside class="card info-card">
       <h2>let's work together</h2>
-      <p>interested in booking, collaborations, or just want to chat? reach out!</p>
-      
-      <div class="info-item">
+      <p>bookings, collaborations, or just ideas — i’m open to it all.</p>
+
+      <div class="info-block">
         <h3>email</h3>
-        <p><a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a></p>
+        <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
       </div>
 
-      <div class="info-item">
+      <div class="info-block">
         <h3>socials</h3>
-        <p>
-          <a href="https://instagram.com" target="_blank">instagram</a> • 
-          <a href="https://soundcloud.com" target="_blank">soundcloud</a> • 
-          <a href="https://twitter.com" target="_blank">twitter</a>
+        <p class="socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener">instagram</a>
+          <span>•</span>
+          <a href="https://soundcloud.com" target="_blank" rel="noopener">soundcloud</a>
+          <span>•</span>
+          <a href="https://twitter.com" target="_blank" rel="noopener">twitter</a>
         </p>
       </div>
 
-      <div class="info-item">
+      <div class="info-block">
         <h3>based in</h3>
-        <p>worldwide • available for remote collaborations</p>
+        <p>worldwide • remote-friendly collaborations</p>
       </div>
-    </div>
-  </div>
-</section>
+    </aside>
 
-<footer>
-  © 2026 mayjune
+  </div>
+</main>
+
+<footer class="footer">
+  <p>© 2026 mayjune</p>
 </footer>
 
 </body>
