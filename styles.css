@@ -1,73 +1,278 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Site Title</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap');
 
-    :root {
-      /* ── SUNSET PALETTE ── */
-      --gold:     #ffd166;
-      --amber:    #ffb347;
-      --coral:    #ff6b51;
-      --rose:     #ff4d7e;
-      --violet:   #9b4dff;
-      --indigo:   #4a1aff;
-      --plum:     #2d1060;
+:root {
+  /* ── SUNSET PALETTE ── */
+  --gold:     #ffd166;
+  --amber:    #ffb347;
+  --coral:    #ff6b51;
+  --rose:     #ff4d7e;
+  --violet:   #9b4dff;
+  --indigo:   #4a1aff;
+  --plum:     #2d1060;
 
-      /* ── SURFACES ── */
-      --surface:  rgba(255, 220, 150, 0.07);
-      --surface2: rgba(200, 100, 255, 0.07);
-      --border:   rgba(255, 180, 80, 0.22);
-      --border2:  rgba(180, 80, 255, 0.22);
+  /* ── SURFACES ── */
+  --surface:  rgba(255, 220, 150, 0.07);
+  --surface2: rgba(200, 100, 255, 0.07);
+  --border:   rgba(255, 180, 80, 0.22);
+  --border2:  rgba(180, 80, 255, 0.22);
 
-      /* ── TEXT ── */
-      --text-warm: rgba(255, 240, 200, 0.9);
-      --text-muted: rgba(255, 220, 170, 0.45);
-    }
+  /* ── TEXT ── */
+  --text-warm: rgba(255, 240, 200, 0.9);
+  --text-muted: rgba(255, 220, 170, 0.45);
+}
 
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+*, *::before, *::after { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
-    html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-    /* ══════════════════════════════════════════
-       BODY — THE SKY ITSELF
-    ══════════════════════════════════════════ */
-    body {
-      background:
-        radial-gradient(ellipse 100% 55% at 50% 100%, #ffb34755 0%, #ff6b5133 30%, transparent 65%),
-        radial-gradient(ellipse 80% 40% at 20% 80%, #ff4d7e33 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 75%, #ffd16622 0%, transparent 55%),
-        radial-gradient(ellipse 120% 80% at 50% 60%, #9b4dff22 0%, #4a1aff11 50%, transparent 80%),
-        linear-gradient(180deg,
-          #1a0933 0%,
-          #2d1060 18%,
-          #4a1a7a 32%,
-          #7a2d6e 48%,
-          #b0365a 62%,
-          #d4563a 74%,
-          #e8843a 84%,
-          #f5ae3a 93%,
-          #ffd166 100%
-        );
-      background-attachment: fixed;
-      min-height: 100vh;
-      color: var(--text-warm);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-      cursor: none;
-    }
+/* ══════════════════════════════════════════
+   BODY — THE SKY ITSELF
+══════════════════════════════════════════ */
+body {
+  background:
+    radial-gradient(ellipse 100% 55% at 50% 100%,  #ffb34755 0%,  #ff6b5133 30%,  transparent 65%),
+    radial-gradient(ellipse 80%  40% at 20% 80%,   #ff4d7e33 0%,  transparent 60%),
+    radial-gradient(ellipse 60%  40% at 80% 75%,   #ffd16622 0%,  transparent 55%),
+    radial-gradient(ellipse 120% 80% at 50% 60%,   #9b4dff22 0%,  #4a1aff11 50%, transparent 80%),
+    linear-gradient(180deg,
+      #1a0933 0%,
+      #2d1060 18%,
+      #4a1a7a 32%,
+      #7a2d6e 48%,
+      #b0365a 62%,
+      #d4563a 74%,
+      #e8843a 84%,
+      #f5ae3a 93%,
+      #ffd166 100%
+    );
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--text-warm);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
 
-    /* GRAIN + DARK VEIL */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='
+/* GRAIN */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 1000;
+  mix-blend-mode: soft-light;
+}
+
+/* DARK VEIL */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── AMBIENT ORBS ── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-1 {
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, #ffd16666 0%, #ffb34744 40%, transparent 70%);
+  bottom: -100px; left: 50%;
+  transform: translateX(-50%);
+  animation: pulse1 10s ease-in-out infinite alternate;
+}
+.orb-2 {
+  width: 700px; height: 600px;
+  background: radial-gradient(ellipse, #9b4dff33 0%, #4a1aff22 50%, transparent 70%);
+  top: -200px; left: -200px;
+  animation: drift1 26s ease-in-out infinite alternate;
+}
+.orb-3 {
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, #ff4d7e2a 0%, transparent 70%);
+  top: 30%; right: -100px;
+  animation: drift2 20s ease-in-out infinite alternate;
+}
+.orb-4 {
+  width: 400px; height: 400px;
+  background: radial-gradient(ellipse, #ffb34722 0%, transparent 70%);
+  top: 40%; left: -80px;
+  animation: drift2 17s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulse1  { to { opacity: 0.7; transform: translateX(-50%) scaleY(1.15); } }
+@keyframes drift1  { to { transform: translate(80px, 90px); } }
+@keyframes drift2  { to { transform: translate(-50px, -70px); } }
+
+/* ══ SUN CURSOR (Fixed & Improved) ══ */
+.cursor {
+  width: 14px; height: 14px;
+  background: radial-gradient(circle, #fff9e0 0%, var(--gold) 55%, var(--amber) 100%);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.08s ease-out, width 0.25s, height 0.25s;
+  box-shadow:
+    0 0 8px  4px rgba(255, 230, 100, 0.7),
+    0 0 22px 8px rgba(255, 180, 60, 0.45),
+    0 0 50px 16px rgba(255, 120, 40, 0.2);
+}
+
+.cursor.clicking {
+  transform: scale(0.65);
+  background: radial-gradient(circle, #fff 0%, var(--coral) 60%);
+  box-shadow:
+    0 0 10px 5px rgba(255, 120, 80, 0.8),
+    0 0 30px 12px rgba(255, 80, 40, 0.4);
+}
+
+.cursor-ring {
+  width: 44px; height: 44px;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  animation: sunSpin 8s linear infinite;
+  background-image: repeating-conic-gradient(
+    rgba(255, 220, 100, 0.7) 0deg 3deg,
+    transparent 3deg 45deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 38%, black 42%, black 48%, transparent 52%);
+          mask: radial-gradient(circle, transparent 38%, black 42%, black 48%, transparent 52%);
+  transition: width 0.35s cubic-bezier(0.23,1,0.32,1),
+              height 0.35s cubic-bezier(0.23,1,0.32,1),
+              opacity 0.3s;
+}
+
+.cursor-ring.hovered {
+  width: 70px; height: 70px;
+  opacity: 0.85;
+}
+
+.cursor-ring.clicking {
+  width: 32px; height: 32px;
+  animation-duration: 1.4s;
+}
+
+.cursor-halo {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(circle,
+    rgba(255, 220, 100, 0.13) 0%,
+    rgba(255, 150, 60, 0.07) 50%,
+    transparent 70%
+  );
+  transition: width 0.45s cubic-bezier(0.23,1,0.32,1),
+              height 0.45s cubic-bezier(0.23,1,0.32,1),
+              opacity 0.3s;
+}
+
+.cursor-halo.hovered {
+  width: 120px; height: 120px;
+  opacity: 0.8;
+}
+
+.cursor-spark {
+  position: fixed;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9990;
+  animation: emberFade 0.9s ease forwards;
+}
+
+@keyframes sunSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes emberFade {
+  0%   { opacity: 1; transform: scale(1) translate(0, 0); }
+  100% { opacity: 0; transform: scale(0.2) translate(var(--tx), var(--ty)); }
+}
+
+/* ══ NAV ══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 52px;
+  transition: background 0.4s, padding 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(26, 9, 51, 0.7);
+  backdrop-filter: blur(24px) saturate(1.4);
+  padding: 18px 52px;
+  border-bottom-color: var(--border2);
+}
+nav h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 24px;
+  background: linear-gradient(135deg, var(--gold), var(--coral), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+  filter: drop-shadow(0 0 12px rgba(255,180,70,0.4));
+}
+.nav-links { display: flex; gap: 40px; }
+nav a {
+  color: rgba(255, 230, 180, 0.55);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s, text-shadow 0.3s;
+  position: relative;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: linear-gradient(to right, var(--gold), var(--coral));
+  transition: width 0.3s ease;
+}
+nav a:hover { color: var(--gold); text-shadow: 0 0 20px rgba(255,209,102,0.5); }
+nav a:hover::after { width: 100%; }
+
+/* ══ BUTTONS ══ */
+.button {
+  display: inline-block;
+  padding: 14px 34px;
+  border-radius: 60px;
+  border: 1.5px solid rgba(255, 200, 100, 0.45);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, color 0.3s;
+  color: rgba(255, 240, 200, 0.9);
+  background: rgba(255, 200, 100, 0.08);
+  backdrop-filter: blur(
