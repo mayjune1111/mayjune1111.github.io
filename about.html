@@ -1,28 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>About</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about — mayjune</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav>
-  <h2>dj velvet</h2>
-  <div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav id="nav">
+  <h2>mayjune</h2>
+  <div class="nav-links">
     <a href="index.html">home</a>
     <a href="music.html">music</a>
     <a href="about.html">about</a>
+    <a href="shop.html">shop</a>
     <a href="contact.html">contact</a>
   </div>
 </nav>
 
-<section class="section">
+<section class="hero-small">
   <h1>about</h1>
-  <p>
-    DJ Velvet creates late-night soundscapes that blur memory and rhythm.
-    Inspired by neon lights, empty highways, and quiet emotions.
-  </p>
+  <p>the story so far</p>
 </section>
 
+<section class="section">
+  <div class="about-grid">
+
+    <div class="about-portrait fade-in">
+      <div class="about-portrait-watermark">mj</div>
+      <span class="about-portrait-label">mayjune · artist</span>
+    </div>
+
+    <div class="about-text fade-in" style="transition-delay: 0.15s">
+      <h2>music that lives between midnight and 4am</h2>
+      <p>
+        mayjune is a DJ and producer crafting late-night soundscapes that blur
+        the line between memory and movement. Drawing from deep house, melodic
+        techno, and ambient textures, every set is a journey built for the
+        dancefloor and the long drive home.
+      </p>
+      <p>
+        The sound started taking shape in small venues and dive bars — intimate
+        rooms where the music could breathe. From those early sets came a
+        signature: slow builds, emotional drops, and an atmosphere that makes
+        time disappear.
+      </p>
+      <p>
+        Whether it's a headline set, a studio session, or a late-night b2b,
+        mayjune brings the same intention every time — music that actually
+        means something.
+      </p>
+
+      <div class="about-tags">
+        <span class="tag">deep house</span>
+        <span class="tag">melodic techno</span>
+        <span class="tag">ambient</span>
+        <span class="tag">DJ · producer</span>
+        <span class="tag">live sets</span>
+        <span class="tag">studio sessions</span>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <a href="contact.html" class="button">work together</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>deep house</span><span class="a">✦</span>
+    <span>melodic techno</span><span class="a">✦</span>
+    <span>mayjune</span><span class="a">✦</span>
+    <span>late nights</span><span class="a">✦</span>
+    <span>neon lights</span><span class="a">✦</span>
+    <span>empty highways</span><span class="a">✦</span>
+    <span>deep house</span><span class="a">✦</span>
+    <span>melodic techno</span><span class="a">✦</span>
+    <span>mayjune</span><span class="a">✦</span>
+    <span>late nights</span><span class="a">✦</span>
+    <span>neon lights</span><span class="a">✦</span>
+    <span>empty highways</span><span class="a">✦</span>
+  </div>
+</div>
+
+<footer>
+  © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+  });
+  function animateRing() {
+    rx += (mx - rx - 17) * 0.12;
+    ry += (my - ry - 17) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a, button, .tag').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

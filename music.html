@@ -1,34 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Music</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>music — mayjune</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav>
-  <h2>dj velvet</h2>
-  <div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav id="nav">
+  <h2>mayjune</h2>
+  <div class="nav-links">
     <a href="index.html">home</a>
     <a href="music.html">music</a>
     <a href="about.html">about</a>
+    <a href="shop.html">shop</a>
     <a href="contact.html">contact</a>
   </div>
 </nav>
 
-<section class="section">
+<section class="hero-small">
   <h1>music</h1>
-  <p>all releases and mixes</p>
+  <p>all releases · mixes · sessions</p>
+</section>
 
-  <div class="cards">
-    <div class="card">
-      <h3>after midnight</h3>
+<section class="section">
+  <span class="section-tag">releases</span>
+  <h2>the catalogue</h2>
+  <div class="divider"></div>
+
+  <div class="music-list">
+    <div class="music-card fade-in">
+      <span class="music-num">01</span>
+      <div class="music-info">
+        <h3>after midnight</h3>
+        <p>deep house · 2026</p>
+      </div>
+      <div class="music-action">
+        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>golden hour set</h3>
+    <div class="music-card fade-in" style="transition-delay:0.08s">
+      <span class="music-num">02</span>
+      <div class="music-info">
+        <h3>golden hour set</h3>
+        <p>melodic techno · 2025</p>
+      </div>
+      <div class="music-action">
+        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
+      </div>
+    </div>
+    <div class="music-card fade-in" style="transition-delay:0.16s">
+      <span class="music-num">03</span>
+      <div class="music-info">
+        <h3>dive bar sessions vol. 2</h3>
+        <p>ambient · live mix · 2025</p>
+      </div>
+      <div class="music-action">
+        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
+      </div>
+    </div>
+    <div class="music-card fade-in" style="transition-delay:0.24s">
+      <span class="music-num">04</span>
+      <div class="music-info">
+        <h3>dive bar sessions vol. 1</h3>
+        <p>ambient · live mix · 2024</p>
+      </div>
+      <div class="music-action">
+        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
+      </div>
     </div>
   </div>
 </section>
 
+<section class="section fade-in">
+  <span class="section-tag">stream now</span>
+  <h2>listen</h2>
+  <div class="divider"></div>
+  <iframe style="border-radius:14px"
+    src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC"
+    width="100%" height="80" frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen">
+  </iframe>
+</section>
+
+<footer>
+  © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+  });
+  function animateRing() {
+    rx += (mx - rx - 17) * 0.12; ry += (my - ry - 17) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

@@ -1,67 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mayjune</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<nav id="nav">
   <h2>mayjune</h2>
   <div class="nav-links">
     <a href="index.html">home</a>
     <a href="music.html">music</a>
     <a href="about.html">about</a>
+    <a href="shop.html">shop</a>
     <a href="contact.html">contact</a>
   </div>
 </nav>
 
 <section class="hero">
+  <p class="hero-eyebrow">dj · producer · artist</p>
   <h1>mayjune</h1>
-  <p>listen now</p>
+  <p class="hero-sub">late-night soundscapes for restless minds</p>
   <div class="buttons">
-    <a href="music.html" class="button primary">listen</a>
-    <a href="contact.html" class="button secondary">contact me</a>
-    <a href="shop.html" class="button secondary">shop</a>
+    <a href="music.html" class="button">listen</a>
+    <a href="shop.html" class="button">shop</a>
+    <a href="contact.html" class="button">contact</a>
+  </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>deep house</span><span class="a">✦</span>
+    <span>melodic techno</span><span class="a">✦</span>
+    <span>late night sessions</span><span class="a">✦</span>
+    <span>mayjune</span><span class="a">✦</span>
+    <span>after midnight</span><span class="a">✦</span>
+    <span>golden hour</span><span class="a">✦</span>
+    <span>deep house</span><span class="a">✦</span>
+    <span>melodic techno</span><span class="a">✦</span>
+    <span>late night sessions</span><span class="a">✦</span>
+    <span>mayjune</span><span class="a">✦</span>
+    <span>after midnight</span><span class="a">✦</span>
+    <span>golden hour</span><span class="a">✦</span>
+  </div>
+</div>
+
 <section class="section">
-  <h2>latest releases</h2>
+  <span class="section-tag">latest releases</span>
+  <h2>the music</h2>
+  <div class="divider"></div>
   <div class="cards">
-    <div class="card">
+    <div class="card fade-in">
+      <span class="card-num">01</span>
       <h3>after midnight</h3>
       <p>late-night deep house that feels like driving nowhere</p>
     </div>
-    <div class="card">
+    <div class="card fade-in" style="transition-delay: 0.1s">
+      <span class="card-num">02</span>
       <h3>golden hour set</h3>
       <p>sunset into darkness — melodic techno</p>
     </div>
-    <div class="card">
+    <div class="card fade-in" style="transition-delay: 0.2s">
+      <span class="card-num">03</span>
       <h3>dive bar sessions vol. 2</h3>
       <p>intimate, smoky, unforgettable</p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>stream now</h2>
-  <iframe style="border-radius:12px"
+<section class="section fade-in">
+  <span class="section-tag">stream now</span>
+  <h2>listen</h2>
+  <div class="divider"></div>
+  <iframe style="border-radius:14px"
     src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC"
     width="100%" height="80" frameBorder="0"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen">
   </iframe>
 </section>
 
-<section class="section">
+<section class="section fade-in">
+  <span class="section-tag">work together</span>
   <h2>let's make something unforgettable</h2>
-  <p>reach out and let's talk</p>
-  <a href="contact.html" class="button primary" style="margin-top: 24px; display: inline-block;">get in touch</a>
+  <div class="divider"></div>
+  <a href="contact.html" class="button">get in touch</a>
 </section>
 
 <footer>
-  © 2026 mayjune
+  © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
 </footer>
 
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+  });
+
+  function animateRing() {
+    rx += (mx - rx - 17) * 0.12;
+    ry += (my - ry - 17) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .card, .tag').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

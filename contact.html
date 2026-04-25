@@ -1,54 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>contact — mayjune</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav id="nav">
   <h2>mayjune</h2>
   <div class="nav-links">
     <a href="index.html">home</a>
     <a href="music.html">music</a>
     <a href="about.html">about</a>
+    <a href="shop.html">shop</a>
     <a href="contact.html">contact</a>
   </div>
 </nav>
 
 <section class="hero-small">
-  <h1>get in touch</h1>
-  <p>bookings, collabs, or just to say hi</p>
+  <h1>contact</h1>
+  <p>bookings · collabs · anything</p>
 </section>
 
 <section class="contact-section">
   <div class="contact-container">
 
-    <div class="contact-form">
+    <div class="contact-form fade-in">
       <div class="form-group">
-        <input type="text" placeholder="your name" />
+        <label class="form-label">your name</label>
+        <input type="text" placeholder="what should I call you?" />
       </div>
       <div class="form-group">
-        <input type="email" placeholder="your email" />
+        <label class="form-label">email</label>
+        <input type="email" placeholder="your@email.com" />
       </div>
       <div class="form-group">
-        <textarea rows="6" placeholder="your message"></textarea>
+        <label class="form-label">what's this about?</label>
+        <input type="text" placeholder="booking · collab · general · other" />
       </div>
-      <button class="button primary" type="submit">send it</button>
+      <div class="form-group">
+        <label class="form-label">message</label>
+        <textarea rows="6" placeholder="tell me everything..."></textarea>
+      </div>
+      <button class="button" type="submit">send it</button>
     </div>
 
-    <div class="contact-info">
-      <div class="info-item">
-        <h3>bookings</h3>
-        <p><a href="mailto:book@mayjune.com">book@mayjune.com</a></p>
+    <div class="contact-info-block fade-in" style="transition-delay: 0.15s">
+      <h3>let's make something together</h3>
+      <p>
+        Whether you're booking a set, looking to collaborate on a track,
+        or just want to say hi — reach out. I read every message.
+      </p>
+      <div class="contact-detail">
+        <span class="contact-detail-label">email</span>
+        <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
       </div>
-      <div class="info-item">
-        <h3>general</h3>
-        <p><a href="mailto:hello@mayjune.com">hello@mayjune.com</a></p>
-      </div>
-      <div class="info-item">
-        <h3>based in</h3>
-        <p>somewhere between the dancefloor and the studio</p>
+      <div class="contact-detail">
+        <span class="contact-detail-label">response time</span>
+        <span style="color: rgba(255,255,255,0.55); font-size: 15px;">usually within 48 hours</span>
       </div>
     </div>
 
@@ -56,8 +72,33 @@
 </section>
 
 <footer>
-  © 2026 mayjune
+  © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
 </footer>
 
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+  });
+  function animateRing() {
+    rx += (mx - rx - 17) * 0.12; ry += (my - ry - 17) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a, button, input, textarea').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shop — mayjune</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav id="nav">
+  <h2>mayjune</h2>
+  <div class="nav-links">
+    <a href="index.html">home</a>
+    <a href="music.html">music</a>
+    <a href="about.html">about</a>
+    <a href="shop.html">shop</a>
+    <a href="contact.html">contact</a>
+  </div>
+</nav>
+
+<section class="hero-small">
+  <h1>shop</h1>
+  <p>wear the vibe</p>
+</section>
+
+<section class="section">
+  <span class="section-tag">merch</span>
+  <h2>the collection</h2>
+  <div class="divider"></div>
+
+  <div class="shop-grid">
+    <div class="shop-card fade-in">
+      <div class="shop-img">tee</div>
+      <div class="shop-info">
+        <h3>after midnight tee</h3>
+        <p>heavyweight cotton, washed black, oversized fit</p>
+        <div class="shop-footer">
+          <span class="price">$35</span>
+          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-card fade-in" style="transition-delay:0.1s">
+      <div class="shop-img">hoodie</div>
+      <div class="shop-info">
+        <h3>mayjune hoodie</h3>
+        <p>oversized fit, embroidered logo, heavyweight fleece</p>
+        <div class="shop-footer">
+          <span class="price">$65</span>
+          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-card fade-in" style="transition-delay:0.2s">
+      <div class="shop-img">cap</div>
+      <div class="shop-info">
+        <h3>velvet cap</h3>
+        <p>six-panel, embroidered script, one size</p>
+        <div class="shop-footer">
+          <span class="price">$28</span>
+          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-card fade-in" style="transition-delay:0.3s">
+      <div class="shop-img">vinyl</div>
+      <div class="shop-info">
+        <h3>golden hour — limited vinyl</h3>
+        <p>hand-numbered edition, 100 copies only</p>
+        <div class="shop-footer">
+          <span class="price">$40</span>
+          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in" style="padding-top: 0;">
+  <p style="color: rgba(255,255,255,0.3); font-size: 13px; letter-spacing: 1px;">
+    all orders are fulfilled via email · <a href="contact.html" style="color: var(--pink); text-decoration: none;">hello@mayjunemusic.com</a>
+  </p>
+</section>
+
+<footer>
+  © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cursor.style.transform = `translate(${mx - 5}px, ${my - 5}px)`;
+  });
+  function animateRing() {
+    rx += (mx - rx - 17) * 0.12; ry += (my - ry - 17) * 0.12;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+  document.querySelectorAll('a, button, .shop-card').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
+  });
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
