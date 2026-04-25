@@ -169,6 +169,7 @@ body::after {
   border-radius: 50%;
   position: fixed;
   top: 0; left: 0;
+  transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9999;
   will-change: transform;
@@ -192,6 +193,7 @@ body::after {
   border-radius: 50%;
   position: fixed;
   top: 0; left: 0;
+  transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9998;
   will-change: transform;
@@ -223,6 +225,7 @@ body::after {
   border-radius: 50%;
   position: fixed;
   top: 0; left: 0;
+  transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9997;
   will-change: transform;
