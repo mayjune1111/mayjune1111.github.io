@@ -26,8 +26,6 @@ html { scroll-behavior: smooth; }
 
 /* ══════════════════════════════════════════
    BODY — THE SKY ITSELF
-   Top: deep plum night → mid: violet dusk →
-   bottom: amber/gold horizon glow
 ══════════════════════════════════════════ */
 body {
   background:
@@ -115,17 +113,19 @@ body::after {
 @keyframes drift1  { to { transform: translate(80px, 90px); } }
 @keyframes drift2  { to { transform: translate(-50px, -70px); } }
 
-/* ══ CURSOR — SUN ══ */
+/* ══ CURSOR — SUN (FIXED) ══ */
 
 /* Core sun disc */
 .cursor {
   width: 14px; height: 14px;
   background: radial-gradient(circle, #fff9e0 0%, var(--gold) 55%, var(--amber) 100%);
   border-radius: 50%;
-  position: fixed; top: 0; left: 0;
+  position: fixed; 
+  top: 0; 
+  left: 0;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.1s, width 0.25s, height 0.25s;
+  transition: transform 0.1s ease-out, width 0.25s, height 0.25s;
   box-shadow:
     0 0 8px  4px rgba(255, 230, 100, 0.7),
     0 0 22px 8px rgba(255, 180, 60, 0.45),
@@ -139,24 +139,22 @@ body::after {
     0 0 30px 12px rgba(255, 80, 40, 0.4);
 }
 
-/* Rotating ray ring — SVG-drawn via CSS */
+/* Rotating ray ring */
 .cursor-ring {
   width: 44px; height: 44px;
-  position: fixed; top: 0; left: 0;
+  position: fixed; 
+  top: 0; 
+  left: 0;
   pointer-events: none;
   z-index: 9998;
   transition: width 0.35s cubic-bezier(0.23,1,0.32,1),
               height 0.35s cubic-bezier(0.23,1,0.32,1),
               opacity 0.3s;
   animation: sunSpin 8s linear infinite;
-  /* 8 ray dashes on a circle */
-  background: none;
-  border-radius: 50%;
   background-image: repeating-conic-gradient(
     rgba(255, 220, 100, 0.7) 0deg 3deg,
     transparent 3deg 45deg
   );
-  /* Mask out the centre so only outer ring shows */
   -webkit-mask: radial-gradient(circle, transparent 38%, black 42%, black 48%, transparent 52%);
           mask: radial-gradient(circle, transparent 38%, black 42%, black 48%, transparent 52%);
 }
@@ -167,19 +165,16 @@ body::after {
 .cursor-ring.clicking {
   width: 32px; height: 32px;
   opacity: 1;
-  animation: sunSpin 1.5s linear infinite; /* spins fast on click */
+  animation-duration: 1.5s;
 }
 
-@keyframes sunSpin {
-  from { transform: rotate(0deg);   }
-  to   { transform: rotate(360deg); }
-}
-
-/* Corona halo — separate softer ring */
+/* Corona halo */
 .cursor-halo {
   width: 80px; height: 80px;
   border-radius: 50%;
-  position: fixed; top: 0; left: 0;
+  position: fixed; 
+  top: 0; 
+  left: 0;
   pointer-events: none;
   z-index: 9997;
   background: radial-gradient(circle,
@@ -205,8 +200,14 @@ body::after {
   z-index: 9990;
   animation: emberFade 0.9s ease forwards;
 }
+
+@keyframes sunSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 @keyframes emberFade {
-  0%   { opacity: 1; transform: scale(1)   translate(0, 0); }
+  0%   { opacity: 1; transform: scale(1) translate(0, 0); }
   100% { opacity: 0; transform: scale(0.2) translate(var(--tx), var(--ty)); }
 }
 
@@ -784,7 +785,6 @@ footer span,
 footer div {
   color: rgba(255, 235, 190, 0.75);
 }
-/* Any plain text nodes directly in footer */
 footer {
   color: rgba(255, 235, 190, 0.75);
 }
@@ -830,59 +830,3 @@ footer a:hover {
   .card { width: 100%; max-width: 340px; }
   .music-card { padding: 18px 20px; }
 }
-
-/*
-  ── SUN CURSOR JS ──
-  Add a <div class="cursor-halo"></div> alongside your existing
-  .cursor and .cursor-ring divs in your HTML, then use this script:
-
-  const cursor = document.querySelector('.cursor');
-  const ring   = document.querySelector('.cursor-ring');
-  const halo   = document.querySelector('.cursor-halo');
-
-  // Each element is offset by half its own width/height so it centers on the mouse.
-  // cursor = 14px  → offset 7
-  // ring   = 44px  → offset 22
-  // halo   = 80px  → offset 40   ← was wrong before (was 30), now matches CSS width
-
-  document.addEventListener('mousemove', e => {
-    const x = e.clientX, y = e.clientY;
-    cursor.style.transform = `translate(${x - 7}px,  ${y - 7}px)`;
-    ring.style.transform   = `translate(${x - 22}px, ${y - 22}px)`;
-    halo.style.transform   = `translate(${x - 40}px, ${y - 40}px)`;
-
-    // ember sparks
-    if (Math.random() > 0.82) {
-      const s = document.createElement('div');
-      s.className = 'cursor-spark';
-      const hue = 30 + Math.random() * 30;
-      s.style.cssText = `left:${x}px;top:${y}px;
-        background:hsl(${hue},100%,65%);
-        --tx:${(Math.random()-0.5)*28}px;
-        --ty:${-(Math.random()*22+8)}px`;
-      document.body.appendChild(s);
-      setTimeout(() => s.remove(), 900);
-    }
-  });
-
-  document.addEventListener('mousedown', () => {
-    cursor.classList.add('clicking');
-    ring.classList.add('clicking');
-  });
-  document.addEventListener('mouseup', () => {
-    cursor.classList.remove('clicking');
-    ring.classList.remove('clicking');
-  });
-
-  // Expand halo + ring on hoverable elements
-  document.querySelectorAll('a, button, .button, .card, .tag').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      ring.classList.add('hovered');
-      halo.classList.add('hovered');
-    });
-    el.addEventListener('mouseleave', () => {
-      ring.classList.remove('hovered');
-      halo.classList.remove('hovered');
-    });
-  });
-*/
