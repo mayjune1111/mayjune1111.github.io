@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +15,7 @@
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <nav id="nav">
   <h2>mayjune</h2>
@@ -36,62 +38,177 @@
 
 <section class="contact-section">
   <div class="contact-container">
-    <div class="contact-form fade-in">
-      <div class="form-group">
-        <label class="form-label">your name</label>
-        <input type="text" placeholder="what should I call you?" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">email</label>
-        <input type="email" placeholder="your@email.com" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">what's this about?</label>
-        <input type="text" placeholder="booking · collab · general · other" />
-      </div>
-      <div class="form-group">
-        <label class="form-label">message</label>
-        <textarea rows="6" placeholder="tell me everything..."></textarea>
-      </div>
-      <button class="button" type="submit">send it</button>
-    </div>
 
-    <div class="contact-info-block fade-in" style="transition-delay: 0.15s">
-      <h3>let's make something together</h3>
-      <p>
-        Whether you're booking a set, looking to collaborate on a track,
-        or just want to say hi — reach out. I read every message.
-      </p>
-      <div class="contact-detail">
-        <span class="contact-detail-label">email</span>
-        <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
-      </div>
-      <div class="contact-detail">
-        <span class="contact-detail-label">response time</span>
-        <span style="color: rgba(255,255,255,0.55); font-size: 15px;">usually within 48 hours</span>
-      </div>
+```
+<!-- ══ FORM ══ -->
+<div class="contact-form fade-in">
+  <form id="contactForm" action="#" method="post">
+    <div class="form-group">
+      <label class="form-label">your name</label>
+      <input type="text" name="name" placeholder="what should I call you?" required />
     </div>
+    <div class="form-group">
+      <label class="form-label">email</label>
+      <input type="email" name="email" placeholder="your@email.com" required />
+    </div>
+    <div class="form-group">
+      <label class="form-label">what's this about?</label>
+      <select name="subject" style="
+        width:100%;padding:14px 18px;
+        border:1px solid var(--border);border-radius:10px;
+        background:rgba(255,180,80,0.06);
+        color:var(--text-warm);
+        font-size:14px;font-family:'DM Sans',sans-serif;font-weight:300;
+        backdrop-filter:blur(10px);
+        transition:border-color 0.3s,background 0.3s,box-shadow 0.3s;
+        appearance:none;-webkit-appearance:none;
+        cursor:auto;
+      ">
+        <option value="" disabled selected style="background:#1a0933;">booking · collab · general · other</option>
+        <option value="booking"   style="background:#1a0933;">booking a set</option>
+        <option value="collab"    style="background:#1a0933;">collaboration</option>
+        <option value="press"     style="background:#1a0933;">press / media</option>
+        <option value="merch"     style="background:#1a0933;">merch / order</option>
+        <option value="general"   style="background:#1a0933;">general hello</option>
+        <option value="other"     style="background:#1a0933;">other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">message</label>
+      <textarea name="message" rows="6" placeholder="tell me everything..." required></textarea>
+    </div>
+    <button class="button" type="submit" id="submitBtn">send it</button>
+  </form>
+</div>
+
+<!-- ══ INFO ══ -->
+<div class="contact-info-block fade-in" style="transition-delay:0.15s">
+  <h3>let's make something together</h3>
+  <p>
+    Whether you're booking a set, looking to collaborate on a track,
+    or just want to say hi — reach out. Every message gets read.
+  </p>
+
+  <div class="contact-detail">
+    <span class="contact-detail-label">email</span>
+    <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
+  </div>
+  <div class="contact-detail">
+    <span class="contact-detail-label">response time</span>
+    <span style="color:rgba(255,255,255,0.55);font-size:15px;">usually within 48 hours</span>
+  </div>
+  <div class="contact-detail">
+    <span class="contact-detail-label">bookings</span>
+    <span style="color:rgba(255,255,255,0.55);font-size:15px;">
+      available for headline, support &amp; b2b — worldwide
+    </span>
+  </div>
+
+  <!-- Social links — fill in your handles -->
+  <div style="margin-top:36px;">
+    <span style="display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;
+      color:var(--gold);text-shadow:0 0 12px rgba(255,209,102,0.4);margin-bottom:16px;">
+      find me online
+    </span>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <!-- Replace # with your actual profile URLs -->
+      <a href="#" style="color:rgba(255,220,160,0.5);text-decoration:none;font-size:13px;
+        letter-spacing:1px;transition:color 0.3s;"
+        onmouseover="this.style.color='var(--gold)'"
+        onmouseout="this.style.color='rgba(255,220,160,0.5)'">
+        instagram — @yourusername
+      </a>
+      <a href="#" style="color:rgba(255,220,160,0.5);text-decoration:none;font-size:13px;
+        letter-spacing:1px;transition:color 0.3s;"
+        onmouseover="this.style.color='var(--gold)'"
+        onmouseout="this.style.color='rgba(255,220,160,0.5)'">
+        soundcloud — soundcloud.com/mayjune
+      </a>
+      <a href="#" style="color:rgba(255,220,160,0.5);text-decoration:none;font-size:13px;
+        letter-spacing:1px;transition:color 0.3s;"
+        onmouseover="this.style.color='var(--gold)'"
+        onmouseout="this.style.color='rgba(255,220,160,0.5)'">
+        spotify — open.spotify.com/artist/...
+      </a>
+    </div>
+  </div>
+
+  <div style="margin-top:36px;">
+    <a href="links.html" class="button" style="font-size:11px;padding:12px 26px;">all my links</a>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
+<!-- ══ EMAIL LIST ══ -->
+
+<section class="email-section fade-in">
+  <span class="section-tag">stay connected</span>
+  <h2>the inner circle</h2>
+  <p>new music, shows, drops — first access, always.</p>
+  <form class="email-form-row" id="emailForm" action="#" method="post">
+    <input type="email" name="email" placeholder="your@email.com" required />
+    <button type="submit" class="button">join</button>
+  </form>
+  <p class="email-note">no spam · unsubscribe any time</p>
+</section>
+
 <footer>
+  <div style="margin-bottom:14px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+    <a href="links.html">links</a>
+    <a href="music.html">music</a>
+    <a href="shop.html">shop</a>
+    <a href="about.html">about</a>
+    <a href="index.html">home</a>
+  </div>
   © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
 </footer>
 
 <script src="cursor.js"></script>
+
 <script>
+  // Mobile nav
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
+  const navL   = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
+    toggle.classList.toggle('open'); navL.classList.toggle('open');
   });
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      links.classList.remove('open');
+  navL.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open'); navL.classList.remove('open');
+  }));
+
+  // Contact form → success
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = this.querySelector('[name="name"]').value || 'you';
+    // ↓ Replace with your actual form handler (Formspree, Netlify Forms, etc.)
+    // e.g. fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(this) })
+    window.mjShowSuccess({
+      title: 'sent ✦',
+      sub: "thanks " + name + " — i'll be in touch soon"
     });
+    this.reset();
+  });
+
+  // Email form
+  document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.mjShowSuccess({ title: "you're in ✦", sub: "welcome to the inner circle" });
+    this.reset();
+  });
+
+  // Focus gold border on select
+  document.querySelector('select').addEventListener('focus', function() {
+    this.style.borderColor = 'var(--gold)';
+    this.style.boxShadow = '0 0 0 3px rgba(255,200,80,0.1), 0 0 20px rgba(255,200,80,0.1)';
+  });
+  document.querySelector('select').addEventListener('blur', function() {
+    this.style.borderColor = 'var(--border)';
+    this.style.boxShadow = 'none';
   });
 </script>
+
 </body>
 </html>
