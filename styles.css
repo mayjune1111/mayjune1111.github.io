@@ -397,7 +397,7 @@ nav a:hover::after { width: 100%; }
   font-style: italic;
   font-weight: 300;
   font-size: clamp(80px, 22vw, 220px);
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -3px;
   padding-bottom: 0.08em; /* prevents background-clip:text from cutting off descenders */
   background: linear-gradient(170deg,
