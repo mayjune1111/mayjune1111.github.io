@@ -3,14 +3,15 @@ mayjune — shared cursor + easter eggs + utils
 ═══════════════════════════════════════════ */
 
 (function () {
-const isMobile = () => window.matchMedia(’(max-width: 768px)’).matches || ‘ontouchstart’ in window;
+// Use pointer: fine to detect real mouse/trackpad — works correctly on iPad with Magic Keyboard/trackpad
+const hasFinePonter = () => window.matchMedia(’(pointer: fine)’).matches;
 
 /* ── CURSOR ── */
 const cursor = document.getElementById(‘cursor’);
 const ring   = document.getElementById(‘cursorRing’);
 const halo   = document.getElementById(‘cursorHalo’);
 
-if (!cursor || isMobile()) {
+if (!cursor || !hasFinePonter()) {
 if (cursor) cursor.style.display = ‘none’;
 if (ring)   ring.style.display   = ‘none’;
 if (halo)   halo.style.display   = ‘none’;
@@ -19,12 +20,26 @@ let mx = -200, my = -200;
 let rx = -200, ry = -200;
 let hx = -200, hy = -200;
 let lastSparkTime = 0;
+let hasMovedOnce = false;
 
 ```
+// Hide everything until the pointer actually moves — prevents stuck-corner bug
+cursor.style.opacity = '0';
+ring.style.opacity   = '0';
+if (halo) halo.style.opacity = '0';
+
 document.addEventListener('mousemove', e => {
   mx = e.clientX;
   my = e.clientY;
   cursor.style.transform = 'translate3d(' + (mx - 7) + 'px, ' + (my - 7) + 'px, 0)';
+
+  // Reveal on first real movement
+  if (!hasMovedOnce) {
+    hasMovedOnce = true;
+    cursor.style.opacity = '1';
+    ring.style.opacity   = '1';
+    if (halo) halo.style.opacity = '1';
+  }
   const now = Date.now();
   if (now - lastSparkTime > 70) {
     lastSparkTime = now;
@@ -70,10 +85,12 @@ function refreshHoverTargets() {
 refreshHoverTargets();
 
 document.addEventListener('mouseleave', () => {
+  if (!hasMovedOnce) return;
   cursor.style.opacity = '0'; ring.style.opacity = '0';
   if (halo) halo.style.opacity = '0';
 });
 document.addEventListener('mouseenter', () => {
+  if (!hasMovedOnce) return;
   cursor.style.opacity = '1'; ring.style.opacity = '1';
   if (halo) halo.style.opacity = '1';
 });
