@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +15,7 @@
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <nav id="nav">
   <h2>mayjune</h2>
@@ -37,47 +39,84 @@
 <section class="section">
   <div class="about-grid">
 
-    <div class="about-portrait fade-in">
-      <div class="about-portrait-watermark">mj</div>
-      <span class="about-portrait-label">mayjune · artist</span>
-    </div>
+```
+<div class="about-portrait fade-in">
+  <div class="about-portrait-watermark">mj</div>
+  <!-- Add your photo: replace this div with <img src="your-photo.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:24px;" /> -->
+  <span class="about-portrait-label">mayjune · artist</span>
+</div>
 
-    <div class="about-text fade-in" style="transition-delay: 0.15s">
-      <h2>music that lives between midnight and 4am</h2>
-      <p>
-        mayjune is a DJ and producer crafting late-night soundscapes that blur
-        the line between memory and movement. Drawing from deep house, melodic
-        techno, and ambient textures, every set is a journey built for the
-        dancefloor and the long drive home.
-      </p>
-      <p>
-        The sound started taking shape in small venues and dive bars — intimate
-        rooms where the music could breathe. From those early sets came a
-        signature: slow builds, emotional drops, and an atmosphere that makes
-        time disappear.
-      </p>
-      <p>
-        Whether it's a headline set, a studio session, or a late-night b2b,
-        mayjune brings the same intention every time — music that actually
-        means something.
-      </p>
+<div class="about-text fade-in" style="transition-delay:0.15s">
+  <h2>music that lives between midnight and 4am</h2>
+  <p>
+    mayjune is a DJ and producer crafting late-night soundscapes that blur
+    the line between memory and movement. Drawing from deep house, melodic
+    techno, and ambient textures, every set is a journey built for the
+    dancefloor and the long drive home.
+  </p>
+  <p>
+    The sound started taking shape in small venues and dive bars — intimate
+    rooms where the music could breathe. From those early sets came a
+    signature: slow builds, emotional drops, and an atmosphere that makes
+    time disappear.
+  </p>
+  <p>
+    Whether it's a headline set, a studio session, or a late-night b2b,
+    mayjune brings the same intention every time — music that actually
+    means something.
+  </p>
 
-      <div class="about-tags">
-        <span class="tag">deep house</span>
-        <span class="tag">melodic techno</span>
-        <span class="tag">ambient</span>
-        <span class="tag">DJ · producer</span>
-        <span class="tag">live sets</span>
-        <span class="tag">studio sessions</span>
-      </div>
+  <div class="about-tags">
+    <span class="tag">deep house</span>
+    <span class="tag">melodic techno</span>
+    <span class="tag">ambient</span>
+    <span class="tag">DJ · producer</span>
+    <span class="tag">live sets</span>
+    <span class="tag">studio sessions</span>
+  </div>
 
-      <div style="margin-top: 40px;">
-        <a href="contact.html" class="button">work together</a>
-      </div>
-    </div>
+  <div style="margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;">
+    <a href="contact.html" class="button">work together</a>
+    <a href="music.html"   class="button">hear the music</a>
+  </div>
+</div>
+```
 
   </div>
 </section>
+
+<!-- ══ STATS ══ -->
+
+<div class="stats-row fade-in">
+  <div class="stat-block">
+    <span class="stat-num">4+</span>
+    <span class="stat-label">releases</span>
+  </div>
+  <div class="stat-block">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">late nights</span>
+  </div>
+  <div class="stat-block">
+    <span class="stat-num">01</span>
+    <span class="stat-label">sound</span>
+  </div>
+  <div class="stat-block">
+    <span class="stat-num">✦</span>
+    <span class="stat-label">always</span>
+  </div>
+</div>
+
+<!-- ══ QUOTE ══ -->
+
+<div class="quote-strip fade-in">
+  <blockquote>
+    the dance floor is the only place where time moves differently
+  </blockquote>
+  <!-- Replace with a real press quote or your own words -->
+  <span class="quote-source">— mayjune</span>
+</div>
+
+<!-- ══ MARQUEE ══ -->
 
 <div class="marquee-wrap">
   <div class="marquee-track">
@@ -96,24 +135,60 @@
   </div>
 </div>
 
+<!-- ══ PRESS ══ -->
+
+<section class="press-section fade-in">
+  <span class="section-tag">press</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:clamp(32px,4vw,52px);color:var(--text-warm);margin-bottom:12px;">
+    for press &amp; media
+  </h2>
+  <p>EPK, hi-res photography, and full bio available on request.</p>
+  <a href="contact.html" class="button">request EPK</a>
+</section>
+
+<!-- ══ EMAIL LIST ══ -->
+
+<section class="email-section fade-in">
+  <span class="section-tag">stay close</span>
+  <h2>the inner circle</h2>
+  <p>new drops, show announcements, secret sets. First access. No noise.</p>
+  <form class="email-form-row" id="emailForm" action="#" method="post">
+    <input type="email" name="email" placeholder="your@email.com" required />
+    <button type="submit" class="button">join</button>
+  </form>
+  <p class="email-note">no spam · unsubscribe any time</p>
+</section>
+
 <footer>
+  <div style="margin-bottom:14px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+    <a href="links.html">links</a>
+    <a href="music.html">music</a>
+    <a href="shop.html">shop</a>
+    <a href="index.html">home</a>
+    <a href="contact.html">contact</a>
+  </div>
   © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
 </footer>
 
 <script src="cursor.js"></script>
+
 <script>
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
+  const navL   = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
+    toggle.classList.toggle('open'); navL.classList.toggle('open');
   });
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      links.classList.remove('open');
-    });
+  navL.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open'); navL.classList.remove('open');
+  }));
+
+  document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.mjShowSuccess({ title: "you're in ✦", sub: "welcome to the inner circle" });
+    this.reset();
   });
 </script>
+
 </body>
 </html>
