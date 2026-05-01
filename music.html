@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +15,7 @@
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <nav id="nav">
   <h2>mayjune</h2>
@@ -34,83 +36,275 @@
   <p>all releases · mixes · sessions</p>
 </section>
 
+<!-- ══ RECORD PLAYER ══ -->
+
+<section class="record-section fade-in">
+  <span class="section-tag">now playing</span>
+  <h2>put the needle down</h2>
+  <div class="divider"></div>
+
+  <div class="record-player">
+    <div class="turntable-base">
+      <div class="platter" id="platter">
+        <!-- grooves -->
+        <div class="groove" style="width:220px;height:220px;"></div>
+        <div class="groove" style="width:196px;height:196px;"></div>
+        <div class="groove" style="width:172px;height:172px;"></div>
+        <div class="groove" style="width:148px;height:148px;"></div>
+        <div class="groove" style="width:124px;height:124px;"></div>
+        <div class="groove" style="width:100px;height:100px;"></div>
+        <div class="record-label">
+          <span class="record-label-name">mayjune</span>
+          <div class="record-label-hole"></div>
+        </div>
+      </div>
+      <!-- Tonearm -->
+      <div class="tonearm-wrap" id="tonearm">
+        <div class="tonearm-pivot"></div>
+        <div class="tonearm-arm">
+          <div class="tonearm-head"></div>
+        </div>
+      </div>
+    </div>
+
+```
+<!-- Track select pills -->
+<div class="record-track-select" id="trackSelect">
+  <button class="track-pill active" data-idx="0">after midnight</button>
+  <button class="track-pill" data-idx="1">golden hour</button>
+  <button class="track-pill" data-idx="2">dive bar vol.2</button>
+  <button class="track-pill" data-idx="3">dive bar vol.1</button>
+</div>
+
+<!-- Play / pause -->
+<button class="record-play-btn" id="playBtn" aria-label="Play">
+  <span id="playIcon">▶</span>
+</button>
+
+<!-- Track info -->
+<div class="record-track-info">
+  <span class="record-track-name" id="trackName">after midnight</span>
+  <span class="record-track-meta" id="trackMeta">deep house · 2026</span>
+</div>
+
+<!-- EQ bars -->
+<div class="eq-bars" id="eqBars">
+  <div class="eq-bar" style="--min:4px;--max:22px;--spd:0.4s;"></div>
+  <div class="eq-bar" style="--min:6px;--max:28px;--spd:0.55s;"></div>
+  <div class="eq-bar" style="--min:3px;--max:18px;--spd:0.35s;"></div>
+  <div class="eq-bar" style="--min:8px;--max:26px;--spd:0.48s;"></div>
+  <div class="eq-bar" style="--min:4px;--max:20px;--spd:0.42s;"></div>
+  <div class="eq-bar" style="--min:6px;--max:24px;--spd:0.38s;"></div>
+  <div class="eq-bar" style="--min:3px;--max:16px;--spd:0.52s;"></div>
+  <div class="eq-bar" style="--min:7px;--max:30px;--spd:0.45s;"></div>
+  <div class="eq-bar" style="--min:4px;--max:22px;--spd:0.39s;"></div>
+  <div class="eq-bar" style="--min:5px;--max:18px;--spd:0.58s;"></div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ══ CATALOGUE ══ -->
+
 <section class="section">
   <span class="section-tag">releases</span>
   <h2>the catalogue</h2>
   <div class="divider"></div>
   <div class="music-list">
-    <div class="music-card fade-in">
-      <span class="music-num">01</span>
-      <div class="music-info">
-        <h3>after midnight</h3>
-        <p>deep house · 2026</p>
-      </div>
-      <div class="music-action">
-        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
-      </div>
-    </div>
-    <div class="music-card fade-in" style="transition-delay:0.08s">
-      <span class="music-num">02</span>
-      <div class="music-info">
-        <h3>golden hour set</h3>
-        <p>melodic techno · 2025</p>
-      </div>
-      <div class="music-action">
-        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
-      </div>
-    </div>
-    <div class="music-card fade-in" style="transition-delay:0.16s">
-      <span class="music-num">03</span>
-      <div class="music-info">
-        <h3>dive bar sessions vol. 2</h3>
-        <p>ambient · live mix · 2025</p>
-      </div>
-      <div class="music-action">
-        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
-      </div>
-    </div>
-    <div class="music-card fade-in" style="transition-delay:0.24s">
-      <span class="music-num">04</span>
-      <div class="music-info">
-        <h3>dive bar sessions vol. 1</h3>
-        <p>ambient · live mix · 2024</p>
-      </div>
-      <div class="music-action">
-        <a href="#" class="button" style="padding: 10px 22px; font-size: 11px;">stream</a>
-      </div>
-    </div>
+
+```
+<div class="music-card fade-in">
+  <span class="music-num">01</span>
+  <div class="music-info">
+    <h3>after midnight</h3>
+    <p>deep house · 2026</p>
+  </div>
+  <div class="music-action">
+    <!-- Replace href with your real streaming link -->
+    <a href="links.html#after-midnight" class="button" style="padding:10px 22px;font-size:11px;">stream</a>
+  </div>
+</div>
+
+<div class="music-card fade-in" style="transition-delay:0.08s">
+  <span class="music-num">02</span>
+  <div class="music-info">
+    <h3>golden hour set</h3>
+    <p>melodic techno · 2025</p>
+  </div>
+  <div class="music-action">
+    <a href="links.html#golden-hour" class="button" style="padding:10px 22px;font-size:11px;">stream</a>
+  </div>
+</div>
+
+<div class="music-card fade-in" style="transition-delay:0.16s">
+  <span class="music-num">03</span>
+  <div class="music-info">
+    <h3>dive bar sessions vol. 2</h3>
+    <p>ambient · live mix · 2025</p>
+  </div>
+  <div class="music-action">
+    <a href="links.html#dive-bar-2" class="button" style="padding:10px 22px;font-size:11px;">stream</a>
+  </div>
+</div>
+
+<div class="music-card fade-in" style="transition-delay:0.24s">
+  <span class="music-num">04</span>
+  <div class="music-info">
+    <h3>dive bar sessions vol. 1</h3>
+    <p>ambient · live mix · 2024</p>
+  </div>
+  <div class="music-action">
+    <a href="links.html#dive-bar-1" class="button" style="padding:10px 22px;font-size:11px;">stream</a>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div style="text-align:center;margin-top:40px;">
+    <a href="links.html" class="button fade-in">all streaming links →</a>
   </div>
 </section>
+
+<!-- ══ SPOTIFY EMBED ══ -->
 
 <section class="section fade-in">
   <span class="section-tag">stream now</span>
   <h2>listen</h2>
   <div class="divider"></div>
+  <!-- Replace src with your Spotify embed URL -->
   <iframe style="border-radius:14px"
     src="https://open.spotify.com/embed/track/4uLU6hMCjMI75M1A2tKUQC"
     width="100%" height="80" frameBorder="0"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen">
   </iframe>
+  <p style="margin-top:16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,200,140,0.25);">
+    replace the embed above with your latest release
+  </p>
+</section>
+
+<!-- ══ PRESS / BIO ══ -->
+
+<section class="press-section fade-in">
+  <span class="section-tag">press</span>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:clamp(32px,4vw,52px);color:var(--text-warm);margin-bottom:12px;">for press & media</h2>
+  <p>EPK, hi-res photos, and bio available on request.</p>
+  <a href="contact.html" class="button">request EPK</a>
+</section>
+
+<!-- ══ EMAIL LIST ══ -->
+
+<section class="email-section fade-in">
+  <span class="section-tag">stay close</span>
+  <h2>the inner circle</h2>
+  <p>new drops, show announcements, secret sets.<br>first access. no noise.</p>
+  <form class="email-form-row" id="emailForm" action="#" method="post">
+    <input type="email" name="email" placeholder="your@email.com" required />
+    <button type="submit" class="button">join</button>
+  </form>
+  <p class="email-note">no spam · unsubscribe any time</p>
 </section>
 
 <footer>
+  <div style="margin-bottom:14px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+    <a href="links.html">links</a>
+    <a href="index.html">home</a>
+    <a href="shop.html">shop</a>
+    <a href="about.html">about</a>
+    <a href="contact.html">contact</a>
+  </div>
   © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
 </footer>
 
 <script src="cursor.js"></script>
+
 <script>
+  // Mobile nav
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
+  const navL   = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
+    toggle.classList.toggle('open'); navL.classList.toggle('open');
   });
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      links.classList.remove('open');
+  navL.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open'); navL.classList.remove('open');
+  }));
+
+  // ── RECORD PLAYER ──
+  const tracks = [
+    { name: 'after midnight',        meta: 'deep house · 2026',          url: 'links.html#after-midnight' },
+    { name: 'golden hour set',       meta: 'melodic techno · 2025',      url: 'links.html#golden-hour'    },
+    { name: 'dive bar sessions vol. 2', meta: 'ambient · live · 2025',   url: 'links.html#dive-bar-2'     },
+    { name: 'dive bar sessions vol. 1', meta: 'ambient · live · 2024',   url: 'links.html#dive-bar-1'     },
+  ];
+
+  let currentTrack = 0;
+  let isPlaying = false;
+
+  const platter  = document.getElementById('platter');
+  const tonearm  = document.getElementById('tonearm');
+  const playBtn  = document.getElementById('playBtn');
+  const playIcon = document.getElementById('playIcon');
+  const trackName = document.getElementById('trackName');
+  const trackMeta = document.getElementById('trackMeta');
+  const eqBars   = document.getElementById('eqBars');
+
+  function setTrack(idx) {
+    currentTrack = idx;
+    document.querySelectorAll('.track-pill').forEach((p, i) => {
+      p.classList.toggle('active', i === idx);
+    });
+    // Fade out → update → fade in
+    trackName.style.opacity = '0';
+    trackMeta.style.opacity = '0';
+    setTimeout(() => {
+      trackName.textContent = tracks[idx].name;
+      trackMeta.textContent = tracks[idx].meta;
+      trackName.style.opacity = '1';
+      trackMeta.style.opacity = '1';
+    }, 250);
+    if (isPlaying) {
+      // Brief stop, then resume
+      platter.classList.remove('spinning');
+      setTimeout(() => { if (isPlaying) platter.classList.add('spinning'); }, 300);
+    }
+  }
+
+  function togglePlay() {
+    isPlaying = !isPlaying;
+    platter.classList.toggle('spinning', isPlaying);
+    tonearm.classList.toggle('playing', isPlaying);
+    playBtn.classList.toggle('playing', isPlaying);
+    playIcon.textContent = isPlaying ? '◼' : '▶';
+    eqBars.classList.toggle('playing', isPlaying);
+    if (isPlaying && window._mjToast) {
+      window._mjToast('✦ ' + tracks[currentTrack].name + ' ✦');
+    }
+  }
+
+  playBtn.addEventListener('click', togglePlay);
+
+  document.querySelectorAll('.track-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      const idx = parseInt(this.dataset.idx);
+      if (idx === currentTrack) { togglePlay(); return; }
+      if (!isPlaying) { setTrack(idx); return; }
+      setTrack(idx);
     });
   });
+
+  // Easter egg: double-click label → go to links page
+  document.querySelector('.record-label').addEventListener('dblclick', () => {
+    window.location.href = tracks[currentTrack].url;
+  });
+
+  // Email form
+  document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.mjShowSuccess({ title: "you're in ✦", sub: "welcome to the inner circle" });
+    this.reset();
+  });
 </script>
+
 </body>
 </html>
