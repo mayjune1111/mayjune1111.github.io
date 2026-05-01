@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,6 +15,7 @@
 
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <nav id="nav">
   <h2>mayjune</h2>
@@ -40,80 +42,145 @@
   <div class="divider"></div>
 
   <div class="shop-grid">
-    <div class="shop-card fade-in">
-      <div class="shop-img">tee</div>
-      <div class="shop-info">
-        <h3>after midnight tee</h3>
-        <p>heavyweight cotton, washed black, oversized fit</p>
-        <div class="shop-footer">
-          <span class="price">$35</span>
-          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
-        </div>
-      </div>
-    </div>
 
-    <div class="shop-card fade-in" style="transition-delay:0.1s">
-      <div class="shop-img">hoodie</div>
-      <div class="shop-info">
-        <h3>mayjune hoodie</h3>
-        <p>oversized fit, embroidered logo, heavyweight fleece</p>
-        <div class="shop-footer">
-          <span class="price">$65</span>
-          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
-        </div>
-      </div>
+```
+<div class="shop-card fade-in">
+  <div class="shop-img">tee</div>
+  <div class="shop-info">
+    <h3>after midnight tee</h3>
+    <p>heavyweight cotton, washed black, oversized fit</p>
+    <div class="shop-footer">
+      <span class="price">$35</span>
+      <button class="button order-btn" style="padding:10px 22px;font-size:11px;"
+        data-item="after midnight tee" data-price="$35">order</button>
     </div>
+  </div>
+</div>
 
-    <div class="shop-card fade-in" style="transition-delay:0.2s">
-      <div class="shop-img">cap</div>
-      <div class="shop-info">
-        <h3>velvet cap</h3>
-        <p>six-panel, embroidered script, one size</p>
-        <div class="shop-footer">
-          <span class="price">$28</span>
-          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
-        </div>
-      </div>
+<div class="shop-card fade-in" style="transition-delay:0.1s">
+  <div class="shop-img">hoodie</div>
+  <div class="shop-info">
+    <h3>mayjune hoodie</h3>
+    <p>oversized fit, embroidered logo, heavyweight fleece</p>
+    <div class="shop-footer">
+      <span class="price">$65</span>
+      <button class="button order-btn" style="padding:10px 22px;font-size:11px;"
+        data-item="mayjune hoodie" data-price="$65">order</button>
     </div>
+  </div>
+</div>
 
-    <div class="shop-card fade-in" style="transition-delay:0.3s">
-      <div class="shop-img">vinyl</div>
-      <div class="shop-info">
-        <h3>golden hour — limited vinyl</h3>
-        <p>hand-numbered edition, 100 copies only</p>
-        <div class="shop-footer">
-          <span class="price">$40</span>
-          <a href="contact.html" class="button" style="padding: 10px 22px; font-size: 11px;">order</a>
-        </div>
-      </div>
+<div class="shop-card fade-in" style="transition-delay:0.2s">
+  <div class="shop-img">cap</div>
+  <div class="shop-info">
+    <h3>velvet cap</h3>
+    <p>six-panel, embroidered script, one size fits all</p>
+    <div class="shop-footer">
+      <span class="price">$28</span>
+      <button class="button order-btn" style="padding:10px 22px;font-size:11px;"
+        data-item="velvet cap" data-price="$28">order</button>
     </div>
+  </div>
+</div>
+
+<div class="shop-card fade-in" style="transition-delay:0.3s">
+  <div class="shop-img">vinyl</div>
+  <div class="shop-info">
+    <h3>golden hour — limited vinyl</h3>
+    <p>hand-numbered edition, 100 copies only</p>
+    <div class="shop-footer">
+      <span class="price">$40</span>
+      <button class="button order-btn" style="padding:10px 22px;font-size:11px;"
+        data-item="golden hour vinyl" data-price="$40">order</button>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
-<section class="section fade-in" style="padding-top: 0;">
-  <p style="color: rgba(255,255,255,0.3); font-size: 13px; letter-spacing: 1px;">
-    all orders are fulfilled via email · <a href="contact.html" style="color: var(--gold); text-decoration: none;">hello@mayjunemusic.com</a>
-  </p>
+<!-- ══ HOW IT WORKS ══ -->
+
+<section class="section fade-in" style="padding-top:0;">
+  <div style="max-width:600px;margin:0 auto;
+    border:1px solid var(--border);border-radius:20px;
+    padding:32px 36px;
+    background:linear-gradient(135deg,rgba(255,180,80,0.05),rgba(155,77,255,0.04));
+    backdrop-filter:blur(12px);text-align:left;">
+    <span class="section-tag" style="margin-bottom:10px;">how ordering works</span>
+    <p style="color:var(--text-muted);font-size:14px;line-height:2;">
+      Click "order" on any item and I'll reach out within 48 hours to confirm
+      size, colour, and shipping details. Payment via invoice once confirmed.
+      All items shipped worldwide. Questions? Hit me at
+      <a href="mailto:hello@mayjunemusic.com"
+         style="color:var(--gold);text-decoration:none;">hello@mayjunemusic.com</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══ EMAIL LIST ══ -->
+
+<section class="email-section fade-in">
+  <span class="section-tag">merch drops</span>
+  <h2>be first in line</h2>
+  <p>limited runs sell out fast. get notified before anyone else.</p>
+  <form class="email-form-row" id="emailForm" action="#" method="post">
+    <input type="email" name="email" placeholder="your@email.com" required />
+    <button type="submit" class="button">notify me</button>
+  </form>
+  <p class="email-note">no spam · unsubscribe any time</p>
 </section>
 
 <footer>
+  <div style="margin-bottom:14px;display:flex;gap:24px;justify-content:center;flex-wrap:wrap;">
+    <a href="links.html">links</a>
+    <a href="music.html">music</a>
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="contact.html">contact</a>
+  </div>
   © 2026 mayjune &nbsp;·&nbsp; <a href="mailto:hello@mayjunemusic.com">hello@mayjunemusic.com</a>
 </footer>
 
 <script src="cursor.js"></script>
+
 <script>
+  // Mobile nav
   const toggle = document.getElementById('navToggle');
-  const links  = document.getElementById('navLinks');
+  const navL   = document.getElementById('navLinks');
   toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
+    toggle.classList.toggle('open'); navL.classList.toggle('open');
   });
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      links.classList.remove('open');
+  navL.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.classList.remove('open'); navL.classList.remove('open');
+  }));
+
+  // Order buttons → success overlay + confetti
+  document.querySelectorAll('.order-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const item  = this.dataset.item;
+      const price = this.dataset.price;
+      // Confetti burst from button position
+      const rect = this.getBoundingClientRect();
+      window.mjConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      setTimeout(() => {
+        window.mjShowSuccess({
+          title: 'ordered ✦',
+          sub: item + ' · ' + price + ' — i\'ll be in touch to confirm'
+        });
+      }, 300);
+      // In production: replace the setTimeout above with your actual order API call
     });
   });
+
+  // Email form
+  document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    window.mjShowSuccess({ title: "noted ✦", sub: "you'll hear from me first" });
+    this.reset();
+  });
 </script>
+
 </body>
 </html>
